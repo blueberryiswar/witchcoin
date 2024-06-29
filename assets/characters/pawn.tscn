@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bau0w6f25kfso"]
+[gd_scene load_steps=8 format=3 uid="uid://bau0w6f25kfso"]
 
-[ext_resource type="Texture2D" uid="uid://cdxaglo78awsr" path="res://assets/spritesheet/actors.png" id="1_2aap8"]
 [ext_resource type="Script" path="res://assets/characters/pawn.gd" id="1_symn1"]
-[ext_resource type="Texture2D" uid="uid://baaq5jw2osvqg" path="res://assets/spritesheet/clothes.png" id="3_vituv"]
-[ext_resource type="Texture2D" uid="uid://druuibpn6xccw" path="res://assets/spritesheet/hair.png" id="4_ws6sy"]
+[ext_resource type="Texture2D" uid="uid://d1dy0eujgt0c5" path="res://assets/characters/Kleidung1.png" id="2_bmei4"]
 
 [sub_resource type="Animation" id="Animation_65lab"]
 length = 0.001
@@ -127,42 +125,45 @@ _data = {
 "walk": SubResource("Animation_xryug")
 }
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_utvsd"]
-cull_mode = 1
-polygon = PackedVector2Array(1, 7, 2, 6, 0, 5, -2, 6, -1, 7)
-
 [node name="Pawn" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_symn1")
 
 [node name="Body" type="Sprite2D" parent="."]
 light_mask = 2
-texture = ExtResource("1_2aap8")
-hframes = 4
-vframes = 2
-
-[node name="Clothes" type="Sprite2D" parent="Body"]
-modulate = Color(0.207843, 0.419608, 0.784314, 1)
-light_mask = 2
-texture = ExtResource("3_vituv")
-hframes = 3
-vframes = 11
-frame = 3
+y_sort_enabled = true
+texture = ExtResource("2_bmei4")
+offset = Vector2(0, -8)
+hframes = 8
+vframes = 6
 
 [node name="Hair" type="Sprite2D" parent="Body"]
-modulate = Color(2, 0.625, 0.688, 1)
 light_mask = 2
 texture_filter = 1
-texture = ExtResource("4_ws6sy")
-hframes = 3
-vframes = 5
-frame = 3
+texture = ExtResource("2_bmei4")
+offset = Vector2(0, -8)
+hframes = 8
+vframes = 6
+frame = 25
+
+[node name="Clothes" type="Sprite2D" parent="Body"]
+light_mask = 2
+texture = ExtResource("2_bmei4")
+offset = Vector2(0, -8)
+hframes = 8
+vframes = 6
+frame = 19
+
+[node name="Hats" type="Sprite2D" parent="Body"]
+y_sort_enabled = true
+texture = ExtResource("2_bmei4")
+offset = Vector2(0, -8)
+hframes = 8
+vframes = 6
+frame = 40
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_48eq3")
 }
 autoplay = "idle"
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_utvsd")

@@ -5,8 +5,9 @@
 [node name="Tree" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
-position = Vector2(0, -7)
 texture = ExtResource("1_opbrw")
+offset = Vector2(0, -8)
 hframes = 4
-frame = 1
+frame = 2
