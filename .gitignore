@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+assets/tilemaps/ground.*
+assets/tilemaps/rogD113.tmp
+assets/tilemaps/roguelike*
+assets/tilemaps/witchwood.aseprite
+assets/spritesheet/actors.*
+assets/spritesheet/clothes.*
+assets/spritesheet/hair*
+assets/spritesheet/Sprite-0001.ase
+assets/characters/roguelike*
+assets/light.*

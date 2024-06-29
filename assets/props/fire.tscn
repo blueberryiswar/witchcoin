@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3c2mesn3yh14"]
+
+[ext_resource type="Script" path="res://assets/props/fire.gd" id="1_b1852"]
+[ext_resource type="Texture2D" uid="uid://dkiwgh3peaike" path="res://assets/tilemaps/roguelikeSheet_transparent.png" id="1_t4usm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtny"]
+atlas = ExtResource("1_t4usm")
+region = Rect2(221, 136, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbtpm"]
+atlas = ExtResource("1_t4usm")
+region = Rect2(238, 136, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvwfy"]
+atlas = ExtResource("1_t4usm")
+region = Rect2(255, 136, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6ps2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvtny")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbtpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvwfy")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qybab"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.415584, 0.662338, 0.787879, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.615536, 0.615536, 0.615536, 1, 0.32021, 0.32021, 0.32021, 1, 0.12103, 0.12103, 0.12103, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rtn80"]
+gradient = SubResource("Gradient_qybab")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ixw3"]
+gradient = SubResource("Gradient_qybab")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="FirePlace" type="Node2D"]
+script = ExtResource("1_b1852")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_d6ps2")
+animation = &"on"
+autoplay = "on"
+frame_progress = 0.855805
+
+[node name="FireLight" type="PointLight2D" parent="."]
+show_behind_parent = true
+light_mask = 3
+z_as_relative = false
+texture_filter = 2
+position = Vector2(-1, 2)
+energy = 0.35
+range_z_max = 6
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.0509804)
+shadow_filter_smooth = 0.4
+texture = SubResource("GradientTexture2D_rtn80")
+height = 1.0
+
+[node name="FireLight2" type="PointLight2D" parent="."]
+show_behind_parent = true
+light_mask = 3
+z_as_relative = false
+texture_filter = 2
+position = Vector2(-1, 2)
+color = Color(0.94902, 0.768627, 0.658824, 1)
+energy = 0.5
+range_z_max = 6
+range_item_cull_mask = 2
+shadow_color = Color(0.0745098, 0.0941176, 0.141176, 0)
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_7ixw3")
+height = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

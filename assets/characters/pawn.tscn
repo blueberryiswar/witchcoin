@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=3 uid="uid://bau0w6f25kfso"]
+
+[ext_resource type="Texture2D" uid="uid://cdxaglo78awsr" path="res://assets/spritesheet/actors.png" id="1_2aap8"]
+[ext_resource type="Script" path="res://assets/characters/pawn.gd" id="1_symn1"]
+[ext_resource type="Texture2D" uid="uid://baaq5jw2osvqg" path="res://assets/spritesheet/clothes.png" id="3_vituv"]
+[ext_resource type="Texture2D" uid="uid://druuibpn6xccw" path="res://assets/spritesheet/hair.png" id="4_ws6sy"]
+
+[sub_resource type="Animation" id="Animation_65lab"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_decu1"]
+resource_name = "down"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.5708, -0.25, 0, 0.25, 0, 1.37881, -0.25, 0, 0.25, 0, 1.66155, -0.25, 0, 0.25, 0, 1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 1)
+}
+
+[sub_resource type="Animation" id="Animation_t76cr"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_xryug"]
+resource_name = "walk"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1, 1, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0942478, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.0942478, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_48eq3"]
+_data = {
+"RESET": SubResource("Animation_65lab"),
+"down": SubResource("Animation_decu1"),
+"idle": SubResource("Animation_t76cr"),
+"walk": SubResource("Animation_xryug")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_utvsd"]
+cull_mode = 1
+polygon = PackedVector2Array(1, 7, 2, 6, 0, 5, -2, 6, -1, 7)
+
+[node name="Pawn" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_symn1")
+
+[node name="Body" type="Sprite2D" parent="."]
+light_mask = 2
+texture = ExtResource("1_2aap8")
+hframes = 4
+vframes = 2
+
+[node name="Clothes" type="Sprite2D" parent="Body"]
+modulate = Color(0.207843, 0.419608, 0.784314, 1)
+light_mask = 2
+texture = ExtResource("3_vituv")
+hframes = 3
+vframes = 11
+frame = 3
+
+[node name="Hair" type="Sprite2D" parent="Body"]
+modulate = Color(2, 0.625, 0.688, 1)
+light_mask = 2
+texture_filter = 1
+texture = ExtResource("4_ws6sy")
+hframes = 3
+vframes = 5
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_48eq3")
+}
+autoplay = "idle"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_utvsd")

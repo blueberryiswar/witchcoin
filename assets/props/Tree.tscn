@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8h0ws6i3mthi"]
+
+[ext_resource type="Texture2D" uid="uid://djgtnp6desk4x" path="res://assets/tilemaps/tree.png" id="1_opbrw"]
+
+[node name="Tree" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -7)
+texture = ExtResource("1_opbrw")
+hframes = 4
+frame = 1
