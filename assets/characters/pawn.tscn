@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bau0w6f25kfso"]
+[gd_scene load_steps=20 format=3 uid="uid://bau0w6f25kfso"]
 
 [ext_resource type="Script" path="res://assets/characters/pawn.gd" id="1_symn1"]
 [ext_resource type="Texture2D" uid="uid://d1dy0eujgt0c5" path="res://assets/characters/Kleidung1.png" id="2_bmei4"]
+[ext_resource type="Script" path="res://assets/characters/Path.gd" id="3_6048b"]
 
 [sub_resource type="Animation" id="Animation_65lab"]
 length = 0.001
@@ -245,3 +246,7 @@ parameters/conditions/is_moving = false
 parameters/idle/blend_position = Vector2(-0.996481, 0.0283911)
 parameters/move/blend_position = Vector2(0, 0)
 parameters/swing/blend_position = Vector2(0, 0)
+
+[node name="Path" type="Node2D" parent="."]
+top_level = true
+script = ExtResource("3_6048b")
