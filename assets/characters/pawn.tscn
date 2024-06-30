@@ -91,6 +91,9 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4, 1)
 }
 
+[sub_resource type="Animation" id="Animation_x6ceb"]
+resource_name = "eat"
+
 [sub_resource type="Animation" id="Animation_t76cr"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -143,9 +146,6 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0942478, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.0942478, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.5)
 }
-
-[sub_resource type="Animation" id="Animation_x6ceb"]
-resource_name = "eat"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_48eq3"]
 _data = {
