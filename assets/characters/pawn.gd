@@ -5,6 +5,9 @@ extends Node2D
 @export var path_finder : Pathfinder
 @export var ground_grid  : TileMap
 var current_id_path : Array[Vector2i]
+var current_point_path : PackedVector2Array
+var old_position : Vector2
+var end_target_position : Vector2
 var current_anim = "idle"
 var is_moving = false
 
@@ -18,13 +21,17 @@ func _input(event):
 	if event.is_action_pressed("move") == false:
 		return
 	
-	var id_path = path_finder.get_my_path(global_position, get_global_mouse_position())
-	print(id_path)
+	end_target_position = get_global_mouse_position()
+	var id_path = path_finder.get_my_path(global_position, end_target_position)
 	if(id_path.is_empty()) == false:
 		current_id_path = id_path
 		
+		current_point_path = path_finder.get_my_points(global_position, end_target_position)
+		
+		
 func _process(delta):
 	if(is_moving):
+		update_line()
 		update_animation("walk")
 	else:
 		animation_player.stop()
@@ -45,9 +52,20 @@ func _physics_process(delta):
 	is_moving = true
 	if global_position == target_position:
 		current_id_path.pop_front()
+		update_position()
+		
 
 func update_animation(name):
 	if (current_anim == name):
 		return
 	animation_player.play(name)
+	
+func update_line():
+	current_point_path = path_finder.get_my_points(global_position, end_target_position)
+	for i in current_point_path.size():
+			current_point_path[i] = current_point_path[i] + Vector2(8,8)
+			
+func update_position():
+	path_finder.move_solid(old_position, global_position)
+	old_position = global_position
 

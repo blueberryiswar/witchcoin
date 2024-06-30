@@ -6,7 +6,6 @@ var astar_grid
 @export var tile_map : TileMap
 @export var player : Node2D
 
-const DIRECTIONS = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
 
 # Called when the no de enters the scene tree for the first time.
 func _ready():
@@ -33,6 +32,16 @@ func get_my_path(start, to):
 		tile_map.local_to_map(to)
 		).slice(1)
 	return id_path
+
+func get_my_points(start, to):
+	var point_path = astar_grid.get_point_path(
+		tile_map.local_to_map(start), 
+		tile_map.local_to_map(to)
+		).slice(1)
+	return point_path	
+
+func move_solid(old_position, new_position):
+	if(old_position):
+		astar_grid.set_point_solid(tile_map.local_to_map(old_position), false)
+	astar_grid.set_point_solid(tile_map.local_to_map(new_position))
 	
-
-
