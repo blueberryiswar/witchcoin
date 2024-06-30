@@ -1,13 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8h0ws6i3mthi"]
+[gd_scene load_steps=3 format=3 uid="uid://c8h0ws6i3mthi"]
 
 [ext_resource type="Texture2D" uid="uid://djgtnp6desk4x" path="res://assets/tilemaps/tree.png" id="1_opbrw"]
+[ext_resource type="Script" path="res://assets/props/Tree.gd" id="2_cq56w"]
 
-[node name="Tree" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
+[node name="Tree" type="Sprite2D" groups=["Tree"]]
 texture_filter = 1
 texture = ExtResource("1_opbrw")
-offset = Vector2(0, -8)
-hframes = 4
-frame = 2
+offset = Vector2(0, -18)
+hframes = 5
+frame = 3
+script = ExtResource("2_cq56w")

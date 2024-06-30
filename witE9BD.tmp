@@ -680,14 +680,12 @@ layer_1/y_sort_origin = 1
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "build"
 layer_2/y_sort_enabled = true
-layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(1048608, 2, 3, 1638425, 2, 3, 1048597, 2, 3, 2031658, 2, 4, 2031657, 327683, 0, 2031656, 327683, 0, 1966120, 2, 4, 1900584, 131075, 2, 1966121, 2, 4, 1966122, 196611, 2, 1900585, 2, 4, 1900586, 131075, 1, 1835049, 65539, 1, 1966123, 65539, 1, 1966124, 131075, 2, 2031660, 327683, 0, 1966119, 65539, 2, 2031655, 3, 1, 1966118, 65538, 4, 2097194, 196611, 1, 2097192, 196611, 1, 1966125, 131075, 1, 1900588, 196610, 3, 1900589, 262146, 3, 2097191, 262147, 0, 1900583, 65539, 0, 1835050, 262146, 3, 1835048, 196610, 3, 2097193, 3, 2, 2097195, 196611, 1, 2031659, 327683, 0, 2031661, 131075, 1, 2097196, 327683, 2, 2097197, 131075, 1, 1966129, 262147, 0, 1966130, 196611, 1, 1966131, 3, 2, 1966132, 327682, 3, 1900596, 262147, 2, 1900597, 196611, 0, 1835061, 262146, 3, 1835060, 65539, 1, 1900595, 2, 4, 1900594, 327683, 0, 1900593, 3, 1, 1835059, 65539, 1, 1835058, 65539, 1, 1835057, 65539, 0, 2031665, 262147, 3, 2097201, 262146, 4, 2031667, 2, 5, 2097203, 131075, 3, 2162729, 262146, 4, 2162733, 196611, 0, 2162732, 262147, 0)
 
-[node name="Pawn" parent="Ground" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("6_b7d87")]
+[node name="Pawn" parent="Ground" node_paths=PackedStringArray("path_finder", "ground_grid") instance=ExtResource("6_b7d87")]
 position = Vector2(504, 353)
 path_finder = NodePath("../../PathFinding")
 ground_grid = NodePath("..")
-item_manager = NodePath("../../ItemManager")
 
 [node name="Tree" parent="Ground" instance=ExtResource("8_xv53g")]
 position = Vector2(681, 326)
@@ -716,7 +714,6 @@ tile_map = NodePath("../Ground")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sg83h")
 
-[node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("tile_map", "path_finder")]
+[node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("tile_map")]
 script = ExtResource("8_khdue")
 tile_map = NodePath("../Ground")
-path_finder = NodePath("../PathFinding")

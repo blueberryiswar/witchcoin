@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvc5k583wtwne"]
+
+[ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_3oojh"]
+[ext_resource type="Script" path="res://assets/items/food/Food.gd" id="2_gicts"]
+
+[node name="Berries" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_3oojh")
+hframes = 3
+frame = 1
+script = ExtResource("2_gicts")
+nutrition = 0.5
+food_type = 1
+count = 1
+item_type = 1

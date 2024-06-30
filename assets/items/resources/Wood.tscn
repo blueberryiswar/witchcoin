@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt4tlvxdmp1g2"]
+
+[ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_ekk5d"]
+[ext_resource type="Script" path="res://assets/items/Item.gd" id="2_dd0py"]
+
+[node name="Wood" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_ekk5d")
+hframes = 3
+script = ExtResource("2_dd0py")
+count = 1
+weight = 1.0
+item_type = 2

@@ -38,7 +38,7 @@ func get_my_points(start, to):
 		tile_map.local_to_map(start), 
 		tile_map.local_to_map(to)
 		).slice(1)
-	return point_path	
+	return point_path
 
 func move_solid(old_position, new_position):
 	if(old_position):
