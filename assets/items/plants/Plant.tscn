@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi42c2mvtj83t"]
+
+[ext_resource type="Texture2D" uid="uid://c6dqo3kbkilub" path="res://assets/spritesheet/Berrybush.png" id="1_bppo2"]
+[ext_resource type="Script" path="res://assets/items/plants/Plant.gd" id="2_desn6"]
+
+[node name="Plant" type="Sprite2D"]
+texture = ExtResource("1_bppo2")
+hframes = 3
+script = ExtResource("2_desn6")
+item_name = "Plant"

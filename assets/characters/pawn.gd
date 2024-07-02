@@ -5,6 +5,11 @@ extends Node2D
 @export var path_finder : Pathfinder
 @export var ground_grid  : TileMap
 @export var item_manager : ItemManager
+@export var clothes : int = 19
+@export var pants : int = 2
+@export var hair : int = 25
+@export var hats : int = 40
+@export var beard : int = 2 #32 - 39
 var current_id_path : Array[Vector2i]
 var current_point_path : PackedVector2Array
 var old_position : Vector2
@@ -13,21 +18,33 @@ var current_anim = "idle"
 var is_moving = false
 var in_hand : Item = null
 var hunger : float = 0.0
+var interaction_target : Item = null
+@export var active : bool = false
+@export var controllable : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.play("idle")
+	$Body/Hair.frame = hair
+	$Body/Clothes.frame = clothes
+	$Body/Beard.frame = beard
+	$Body/Pants.frame = pants
+	$Body/Hats.frame = hats
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
+	return
+	if !active: return
 	if event.is_action_pressed("act"):
-		find_food()
-	if event.is_action_pressed("move"):
 		move_to(get_global_mouse_position())
+	if event.is_action_pressed("move"):
+		pass
 
 func _process(delta):
 	if(is_moving):
-		update_line()
+		if(active):
+			update_line()
 		update_animation("walk")
 	else:
 		animation_player.stop()
@@ -35,6 +52,11 @@ func _process(delta):
 		
 	if(in_hand != null):
 		in_hand.global_position = global_position
+		
+	if(interaction_target != null):
+		if(interaction_target.interact(delta)):
+			interaction_target = null
+		
 	
 	hunger += delta * 0.01
 
@@ -55,8 +77,8 @@ func _physics_process(delta):
 		current_id_path.pop_front()
 		update_position()
 
-func move_to(position : Vector2):
-	end_target_position = position
+func move_to(pos : Vector2):
+	end_target_position = pos
 	var id_path = path_finder.get_my_path(global_position, end_target_position)
 	if(id_path.is_empty()) == false:
 		current_id_path = id_path
@@ -66,6 +88,9 @@ func pick_up(target_item : Item):
 	item_manager.remove_item(target_item)
 	$Hand.add_child(target_item)
 	in_hand = target_item
+	
+func interact(target_item):
+	interaction_target = target_item
 
 func eat():
 	if(in_hand.item_type == Item.ItemType.FOOD):
@@ -93,13 +118,13 @@ func find_food():
 	return true
 
 func find_nearest_item(item_type : String):
-	var item = item_manager.find_nearest_item(global_position,"food")
+	var item = item_manager.find_nearest_item(global_position,item_type)
 	return item
 
-func update_animation(name):
-	if (current_anim == name):
+func update_animation(anim_name):
+	if (current_anim == anim_name):
 		return
-	animation_player.play(name)
+	animation_player.play(anim_name)
 
 func update_line():
 	current_point_path = path_finder.get_my_points(global_position, end_target_position)

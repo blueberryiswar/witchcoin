@@ -2,7 +2,7 @@ extends Node
 
 class_name Task
 
-enum TaskType {BaseTask, FindItem, WalkTo, Pickup, Eat, Manipulate, Harvest, Carry, Drop}
+enum TaskType {BaseTask, FindItem, WalkTo, Pickup, Eat, Manipulate, Harvest, Carry, Drop, Store}
 
 var task_name : String
 var task_type : TaskType = TaskType.BaseTask
@@ -62,4 +62,47 @@ func init_find_and_eat_food():
 	sub_task = Task.new()
 	sub_task.task_type = TaskType.Eat
 	sub_tasks.append(sub_task)
+	
+func init_harvest_plant(target):
+	task_name = "Harvest plant"
+	var sub_task = null
+	
+	if(target == null):
+		sub_task = Task.new()
+		sub_task.task_type = TaskType.FindItem
+		sub_task.target_item_type = "Plant"
+		sub_tasks.append(sub_task)
+	
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.WalkTo
+	sub_task.target_item = target
+	sub_task.has_item = true
+	sub_tasks.append(sub_task)
+	
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.Harvest
+	sub_tasks.append(sub_task)
+	
+func init_haul_item(target, storage):
+	task_name = "Hauling Items"
+	
+	var sub_task = Task.new()
+	sub_task.task_type = TaskType.WalkTo
+	sub_task.target_item = target
+	sub_task.has_item = true
+	sub_tasks.append(sub_task)
+	
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.Pickup
+	sub_tasks.append(sub_task)
+	
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.WalkTo
+	sub_task.target_item = storage
+	sub_task.has_item = true
+	sub_tasks.append(sub_task)
+	
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.Store
+	
 	

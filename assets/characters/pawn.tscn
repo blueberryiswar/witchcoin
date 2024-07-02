@@ -221,7 +221,7 @@ texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
 hframes = 8
 vframes = 6
-frame = 25
+frame = 24
 
 [node name="Clothes" type="Sprite2D" parent="Body"]
 light_mask = 2
@@ -229,7 +229,15 @@ texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
 hframes = 8
 vframes = 6
-frame = 19
+frame = 16
+
+[node name="Pants" type="Sprite2D" parent="Body"]
+light_mask = 2
+texture = ExtResource("2_bmei4")
+offset = Vector2(0, -8)
+hframes = 8
+vframes = 6
+frame = 8
 
 [node name="Hats" type="Sprite2D" parent="Body"]
 y_sort_enabled = true
@@ -237,7 +245,15 @@ texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
 hframes = 8
 vframes = 6
-frame = 40
+frame = 42
+
+[node name="Beard" type="Sprite2D" parent="Body"]
+y_sort_enabled = true
+texture = ExtResource("2_bmei4")
+offset = Vector2(0, -8)
+hframes = 8
+vframes = 6
+frame = 38
 
 [node name="Hand" type="Node2D" parent="."]
 top_level = true
@@ -260,7 +276,7 @@ parameters/swing/blend_position = Vector2(0, 0)
 top_level = true
 script = ExtResource("3_6048b")
 
-[node name="TaskManager" type="Node" parent="."]
+[node name="TaskManager" type="Node" parent="." groups=["task_manager"]]
 script = ExtResource("4_4rwv0")
 
 [node name="PawnAI" type="Node" parent="."]

@@ -41,7 +41,7 @@ func start_new_day():
 	hour = 0
 	day += 1
 	if(day > 30):
-		month + 1
+		month += 1
 		if (month > 12):
 			month = 1
 			year += 1

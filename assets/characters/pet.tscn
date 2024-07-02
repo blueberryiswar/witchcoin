@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://boiv3eqiy7oko"]
+
+[ext_resource type="Texture2D" uid="uid://tymtmxswokj3" path="res://assets/spritesheet/Animalsklein.png" id="1_nj3ud"]
+
+[node name="Pet" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_nj3ud")
+hframes = 4
