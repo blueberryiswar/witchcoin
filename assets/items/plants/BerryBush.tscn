@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://3m43gxuganju"]
+
+[ext_resource type="Texture2D" uid="uid://c6dqo3kbkilub" path="res://assets/spritesheet/Berrybush.png" id="1_xvwcv"]
+[ext_resource type="Script" path="res://assets/items/plants/BerryBush.gd" id="2_qtaer"]
+[ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://assets/system/click_target.tscn" id="3_oo7n0"]
+
+[node name="BerryBush" type="Sprite2D"]
+y_sort_enabled = true
+texture_filter = 1
+texture = ExtResource("1_xvwcv")
+hframes = 3
+script = ExtResource("2_qtaer")
+harvestable_item = "res://assets/items/food/Berries.tscn"
+
+[node name="ClickTarget" parent="." instance=ExtResource("3_oo7n0")]
+
+[node name="CollisionShape2D" parent="ClickTarget" index="0"]
+position = Vector2(-0.5, 2.5)
+
+[editable path="ClickTarget"]

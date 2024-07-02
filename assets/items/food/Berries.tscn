@@ -11,5 +11,7 @@ frame = 1
 script = ExtResource("2_gicts")
 nutrition = 0.5
 food_type = 1
+item_name = "Fruit"
+item_description = "A fruit from an unknown source"
 count = 1
 item_type = 1

@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv3jeixb5bkdm"]
+
+[ext_resource type="Texture2D" uid="uid://0fo4k4tmfste" path="res://assets/spritesheet/Cauldron.png" id="1_002f5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aamq"]
+atlas = ExtResource("1_002f5")
+region = Rect2(0, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oul58"]
+atlas = ExtResource("1_002f5")
+region = Rect2(56, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es4yj"]
+atlas = ExtResource("1_002f5")
+region = Rect2(112, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4241m"]
+atlas = ExtResource("1_002f5")
+region = Rect2(168, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thcbk"]
+atlas = ExtResource("1_002f5")
+region = Rect2(224, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaj35"]
+atlas = ExtResource("1_002f5")
+region = Rect2(280, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4d4r"]
+atlas = ExtResource("1_002f5")
+region = Rect2(336, 0, 56, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbets"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aamq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oul58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es4yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4241m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thcbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaj35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4d4r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Cauldron" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_dbets")
+autoplay = "default"
