@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6k6eya0tadnh"]
+
+[ext_resource type="Texture2D" uid="uid://cvym0jf2kqmbe" path="res://assets/spritesheet/Furniture2.png" id="1_gy6xs"]
+
+[node name="Furniture" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_gy6xs")
+hframes = 9

@@ -12,9 +12,7 @@ hframes = 3
 script = ExtResource("2_qtaer")
 harvestable_item = "res://assets/items/food/Berries.tscn"
 
-[node name="ClickTarget" parent="." instance=ExtResource("3_oo7n0")]
-
-[node name="CollisionShape2D" parent="ClickTarget" index="0"]
-position = Vector2(-0.5, 2.5)
+[node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_oo7n0")]
+sprite = NodePath("..")
 
 [editable path="ClickTarget"]

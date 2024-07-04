@@ -14,6 +14,7 @@ frame = 3
 script = ExtResource("2_cq56w")
 harvestable_item = "res://assets/items/resources/Wood.tscn"
 
-[node name="ClickTarget" parent="." instance=ExtResource("3_llbva")]
+[node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_llbva")]
+sprite = NodePath("..")
 
 [editable path="ClickTarget"]
