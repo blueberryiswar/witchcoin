@@ -769,3 +769,8 @@ frame = 1
 
 [node name="Furniture" parent="." instance=ExtResource("11_cywll")]
 position = Vector2(520, 179)
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(300, 300)
+size = Vector2i(400, 300)
+unresizable = true
