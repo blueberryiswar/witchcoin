@@ -48,7 +48,7 @@ func init_find_and_eat_food():
 	
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.FindItem
-	sub_task.target_item_type = "Food"
+	sub_task.target_item_type = "food"
 	sub_tasks.append(sub_task)
 	
 	sub_task = Task.new()
