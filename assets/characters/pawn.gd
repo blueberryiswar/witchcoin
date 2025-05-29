@@ -134,4 +134,3 @@ func update_line():
 func update_position():
 	path_finder.move_solid(old_position, global_position)
 	old_position = global_position
-

@@ -13,4 +13,3 @@ enum FoodQuality {RAW = 0, SIMPLE = 1, GOOD = 2, FANCY = 3}
 func _ready():
 	super._ready()
 	add_to_group("food")
-

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq36r5bmeaskx"]
 
 [ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_bh8tv"]
-[ext_resource type="Script" path="res://assets/items/food/Food.gd" id="2_dm073"]
+[ext_resource type="Script" uid="uid://bvxa846q7ulxf" path="res://assets/items/food/Food.gd" id="2_dm073"]
 
 [node name="Berries" type="Sprite2D"]
 texture_filter = 1

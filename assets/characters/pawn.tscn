@@ -1,10 +1,10 @@
 [gd_scene load_steps=23 format=3 uid="uid://bau0w6f25kfso"]
 
-[ext_resource type="Script" path="res://assets/characters/pawn.gd" id="1_symn1"]
+[ext_resource type="Script" uid="uid://ud2qfw861c6d" path="res://assets/characters/pawn.gd" id="1_symn1"]
 [ext_resource type="Texture2D" uid="uid://d1dy0eujgt0c5" path="res://assets/characters/Kleidung1.png" id="2_bmei4"]
-[ext_resource type="Script" path="res://assets/characters/Path.gd" id="3_6048b"]
-[ext_resource type="Script" path="res://assets/characters/TaskManager.gd" id="4_4rwv0"]
-[ext_resource type="Script" path="res://assets/characters/PawnAI.gd" id="5_i63vw"]
+[ext_resource type="Script" uid="uid://rrvq2hvi74fu" path="res://assets/characters/Path.gd" id="3_6048b"]
+[ext_resource type="Script" uid="uid://ceelwmcbgaxu" path="res://assets/characters/TaskManager.gd" id="4_4rwv0"]
+[ext_resource type="Script" uid="uid://bfu0b471xlehy" path="res://assets/characters/PawnAI.gd" id="5_i63vw"]
 
 [sub_resource type="Animation" id="Animation_65lab"]
 length = 0.001
@@ -149,11 +149,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_48eq3"]
 _data = {
-"RESET": SubResource("Animation_65lab"),
-"down": SubResource("Animation_decu1"),
-"eat": SubResource("Animation_x6ceb"),
-"idle": SubResource("Animation_t76cr"),
-"walk": SubResource("Animation_r7lpy")
+&"RESET": SubResource("Animation_65lab"),
+&"down": SubResource("Animation_decu1"),
+&"eat": SubResource("Animation_x6ceb"),
+&"idle": SubResource("Animation_t76cr"),
+&"walk": SubResource("Animation_r7lpy")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wvdpn"]
@@ -260,7 +260,7 @@ top_level = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_48eq3")
+&"": SubResource("AnimationLibrary_48eq3")
 }
 autoplay = "idle"
 

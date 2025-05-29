@@ -11,4 +11,3 @@ func _ready():
 func drop_item():
 	super.drop_item()
 	frame = 4
-

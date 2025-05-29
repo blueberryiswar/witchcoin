@@ -5,6 +5,7 @@ class_name ItemManager
 @export var tile_map : TileMap
 @export var path_finder : Pathfinder
 var item_prototypes = []
+@export var blueprints : Array[Buildable]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,14 +13,6 @@ func _ready():
 	load_resources()
 	load_plants()
 	spawn_objects()
-	
-	spawn_item("res://assets/items/food/Berries.tscn", Vector2i(10,10))
-	spawn_item("res://assets/items/food/Berries.tscn", Vector2i(15,20))
-	spawn_item("res://assets/items/food/Fruit.tscn", Vector2i(18,10))
-	spawn_item("res://assets/items/plants/BerryBush.tscn", Vector2(20,21))
-	spawn_item("res://assets/items/plants/BerryBush.tscn", Vector2(28,25))
-	spawn_item("res://assets/items/plants/BerryBush.tscn", Vector2(32,17))
-	
 
 func spawn_objects():
 	for x in tile_map.get_used_rect().size.x:
@@ -27,12 +20,12 @@ func spawn_objects():
 			var tile_position = Vector2i(
 				x + tile_map.get_used_rect().position.x
 				,y + tile_map.get_used_rect().position.y )
-			var object_data = tile_map.get_cell_tile_data(3,tile_position)
+			var object_data = tile_map.get_cell_tile_data(4,tile_position)
 			
 			if object_data != null and object_data.get_custom_data("type"):
 				spawn_item(object_data.get_custom_data("type"), tile_position)
 				
-	tile_map.set_layer_enabled(3, false)
+	tile_map.set_layer_enabled(4, false)
 
 func spawn_item(item_path : String, pos : Vector2i):
 	var item = get_item_by_name(item_path)
@@ -61,6 +54,20 @@ func find_nearest_item(my_position: Vector2, item_type : String):
 			closestItem = item
 			print(distance, closestItem)
 	return closestItem
+		
+func _dir_contents(path : String, file_extension: String):
+	var dir = DirAccess.open(path)
+	var files = []
+	
+	dir.list_dir_begin()
+	while true:
+		var file_name = dir.get_next()
+		if file_name == "":
+			break
+		elif file_name.ends_with(file_extension):
+			files.append(path + "/" + file_name)
+	dir.list_dir_end()
+	return files
 
 func load_food():
 	var path = "res://assets/items/food"

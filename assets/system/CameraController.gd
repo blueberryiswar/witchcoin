@@ -57,7 +57,7 @@ func _process(delta):
 		var viewportrect = get_viewport_rect()
 		
 		if (viewportMousePos.x < camera_pan_offset 
-			or viewportMousePos.y < camera_pan_offset 
+			or viewportMousePos.y < camera_pan_offset
 			or viewportMousePos.x > viewportrect.size.x - camera_pan_offset 
 			or viewportMousePos.y > viewportrect.size.y - camera_pan_offset): 
 			position = position.move_toward(viewportMousePos, 2) 

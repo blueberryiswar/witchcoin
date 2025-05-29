@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt4tlvxdmp1g2"]
 
 [ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_ekk5d"]
-[ext_resource type="Script" path="res://assets/items/Item.gd" id="2_dd0py"]
+[ext_resource type="Script" uid="uid://bd4sy0nnigf6w" path="res://assets/items/Item.gd" id="2_dd0py"]
 
 [node name="Wood" type="Sprite2D"]
 texture_filter = 1
