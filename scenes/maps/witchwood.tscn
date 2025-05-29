@@ -10,10 +10,10 @@
 [ext_resource type="Script" uid="uid://b386hhtvow4j0" path="res://scripts/system/PathFinding.gd" id="8_jmsku"]
 [ext_resource type="Script" uid="uid://m8orijp8285g" path="res://scripts/system/ItemManager.gd" id="9_r2kgo"]
 [ext_resource type="Script" uid="uid://bxkr83601pk6p" path="res://scripts/system/Buildable.gd" id="10_7jpfk"]
-[ext_resource type="PackedScene" uid="uid://vb6uu78i6kp6" path="res://scenes/entities/Wall.tscn" id="11_c0whs"]
+[ext_resource type="PackedScene" uid="uid://vb6uu78i6kp6" path="res://scenes/entities/blueprints/Wall.tscn" id="11_c0whs"]
 [ext_resource type="PackedScene" uid="uid://bv3jeixb5bkdm" path="res://scenes/entities/cauldron.tscn" id="12_h5602"]
 [ext_resource type="PackedScene" uid="uid://boiv3eqiy7oko" path="res://scenes/entities/pet.tscn" id="13_f2bl6"]
-[ext_resource type="PackedScene" uid="uid://6k6eya0tadnh" path="res://scenes/entities/furniture.tscn" id="14_avb3n"]
+[ext_resource type="PackedScene" uid="uid://6k6eya0tadnh" path="res://scenes/entities/furniture/furniture.tscn" id="14_avb3n"]
 [ext_resource type="Script" uid="uid://3a485htvckhn" path="res://scripts/GUI/UI.gd" id="15_iprrl"]
 [ext_resource type="Script" uid="uid://chthvgxg7jsff" path="res://scripts/GUI/pnl_bottom.gd" id="16_as3bw"]
 [ext_resource type="Script" uid="uid://po08t5fp32c4" path="res://scripts/GUI/pnl_architect.gd" id="17_1kn08"]
@@ -23,9 +23,9 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ed0bp"]
 texture = ExtResource("1_qprb5")
 1:0/0 = 0
-1:0/0/custom_data_2 = "res://assets/items/plants/Tree.tscn"
+1:0/0/custom_data_2 = "res://scenes/entities/plants/Tree.tscn"
 2:0/0 = 0
-2:0/0/custom_data_2 = "res://assets/items/plants/BerryBush.tscn"
+2:0/0/custom_data_2 = "res://scenes/entities/plants/BerryBush.tscn"
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0

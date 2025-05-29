@@ -70,7 +70,7 @@ func _dir_contents(path : String, file_extension: String):
 	return files
 
 func load_food():
-	var path = "res://assets/items/food"
+	var path = "res://scenes/entities/food/"
 	var dir = DirAccess.open(path)
 	
 	dir.list_dir_begin()
@@ -84,7 +84,7 @@ func load_food():
 	dir.list_dir_end()
 	
 func load_resources():
-	var path = "res://assets/items/resources"
+	var path = "res://scenes/entities/resources/"
 	var dir = DirAccess.open(path)
 	
 	dir.list_dir_begin()
@@ -98,7 +98,7 @@ func load_resources():
 	dir.list_dir_end()
 	
 func load_plants():
-	var path = "res://assets/items/plants"
+	var path = "res://scenes/entities/plants/"
 	var dir = DirAccess.open(path)
 	
 	dir.list_dir_begin()
