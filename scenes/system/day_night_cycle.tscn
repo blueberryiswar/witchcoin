@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://2mc0l5hewlhm"]
 
-[ext_resource type="Script" uid="uid://klai3meg74np" path="res://assets/system/day_night_cycle.gd" id="1_2d60l"]
-[ext_resource type="Script" uid="uid://bxsatqwhq7tae" path="res://assets/system/Daylight.gd" id="2_vif8e"]
+[ext_resource type="Script" uid="uid://klai3meg74np" path="res://scripts/system/day_night_cycle.gd" id="1_2d60l"]
+[ext_resource type="Script" uid="uid://bxsatqwhq7tae" path="res://scripts/entities/Daylight.gd" id="2_vif8e"]
 
 [node name="DayNightCycle" type="Node2D"]
 script = ExtResource("1_2d60l")

@@ -1,27 +1,27 @@
 [gd_scene load_steps=26 format=3 uid="uid://drw3vi6yaikxj"]
 
-[ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_61jjb"]
-[ext_resource type="Texture2D" uid="uid://mt45d7bdoeax" path="res://assets/tilemaps/walls.png" id="2_ej3ag"]
-[ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_gajtn"]
-[ext_resource type="Script" uid="uid://b386hhtvow4j0" path="res://assets/system/PathFinding.gd" id="3_1vv40"]
-[ext_resource type="PackedScene" uid="uid://2mc0l5hewlhm" path="res://assets/system/day_night_cycle.tscn" id="3_5iipk"]
-[ext_resource type="Texture2D" uid="uid://c241v6dpskcmv" path="res://assets/tilemaps/gbstyle.png" id="3_c5lnw"]
-[ext_resource type="Script" uid="uid://7akjxv5nnp43" path="res://assets/system/CameraController.gd" id="5_agm5g"]
-[ext_resource type="PackedScene" uid="uid://bau0w6f25kfso" path="res://assets/characters/pawn.tscn" id="6_b7d87"]
-[ext_resource type="Script" uid="uid://m8orijp8285g" path="res://assets/system/ItemManager.gd" id="8_khdue"]
-[ext_resource type="PackedScene" uid="uid://bv3jeixb5bkdm" path="res://assets/props/cauldron.tscn" id="9_gwr2c"]
-[ext_resource type="Script" uid="uid://bxkr83601pk6p" path="res://assets/system/Buildable.gd" id="10_cc2dn"]
-[ext_resource type="PackedScene" uid="uid://boiv3eqiy7oko" path="res://assets/characters/pet.tscn" id="10_j6vug"]
-[ext_resource type="PackedScene" uid="uid://vb6uu78i6kp6" path="res://assets/blueprints/Wall.tscn" id="10_w6rgw"]
-[ext_resource type="PackedScene" uid="uid://6k6eya0tadnh" path="res://assets/items/furniture/furniture.tscn" id="11_cywll"]
-[ext_resource type="Script" uid="uid://3a485htvckhn" path="res://assets/system/UI.gd" id="12_5i2c0"]
-[ext_resource type="Script" uid="uid://chthvgxg7jsff" path="res://assets/system/pnl_bottom.gd" id="13_giedh"]
-[ext_resource type="Script" uid="uid://po08t5fp32c4" path="res://assets/system/pnl_architect.gd" id="14_kqnur"]
+[ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_qprb5"]
+[ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_ghbdp"]
+[ext_resource type="Texture2D" uid="uid://c241v6dpskcmv" path="res://assets/tilemaps/gbstyle.png" id="3_60qwg"]
+[ext_resource type="Texture2D" uid="uid://mt45d7bdoeax" path="res://assets/tilemaps/walls.png" id="4_35v6s"]
+[ext_resource type="PackedScene" uid="uid://bau0w6f25kfso" path="res://scenes/entities/pawn.tscn" id="5_6rdfj"]
+[ext_resource type="Script" uid="uid://7akjxv5nnp43" path="res://scripts/system/CameraController.gd" id="6_v7woc"]
+[ext_resource type="PackedScene" uid="uid://2mc0l5hewlhm" path="res://scenes/system/day_night_cycle.tscn" id="7_wb3w4"]
+[ext_resource type="Script" uid="uid://b386hhtvow4j0" path="res://scripts/system/PathFinding.gd" id="8_jmsku"]
+[ext_resource type="Script" uid="uid://m8orijp8285g" path="res://scripts/system/ItemManager.gd" id="9_r2kgo"]
+[ext_resource type="Script" uid="uid://bxkr83601pk6p" path="res://scripts/system/Buildable.gd" id="10_7jpfk"]
+[ext_resource type="PackedScene" uid="uid://vb6uu78i6kp6" path="res://scenes/entities/Wall.tscn" id="11_c0whs"]
+[ext_resource type="PackedScene" uid="uid://bv3jeixb5bkdm" path="res://scenes/entities/cauldron.tscn" id="12_h5602"]
+[ext_resource type="PackedScene" uid="uid://boiv3eqiy7oko" path="res://scenes/entities/pet.tscn" id="13_f2bl6"]
+[ext_resource type="PackedScene" uid="uid://6k6eya0tadnh" path="res://scenes/entities/furniture.tscn" id="14_avb3n"]
+[ext_resource type="Script" uid="uid://3a485htvckhn" path="res://scripts/GUI/UI.gd" id="15_iprrl"]
+[ext_resource type="Script" uid="uid://chthvgxg7jsff" path="res://scripts/GUI/pnl_bottom.gd" id="16_as3bw"]
+[ext_resource type="Script" uid="uid://po08t5fp32c4" path="res://scripts/GUI/pnl_architect.gd" id="17_1kn08"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_roao7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ed0bp"]
-texture = ExtResource("1_61jjb")
+texture = ExtResource("1_qprb5")
 1:0/0 = 0
 1:0/0/custom_data_2 = "res://assets/items/plants/Tree.tscn"
 2:0/0 = 0
@@ -31,7 +31,7 @@ texture = ExtResource("1_61jjb")
 5:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84eb0"]
-texture = ExtResource("2_gajtn")
+texture = ExtResource("2_ghbdp")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -363,7 +363,7 @@ texture = ExtResource("2_gajtn")
 11:3/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg4ud"]
-texture = ExtResource("3_c5lnw")
+texture = ExtResource("3_60qwg")
 margins = Vector2i(1, 1)
 separation = Vector2i(2, 2)
 0:0/0 = 0
@@ -578,7 +578,7 @@ separation = Vector2i(2, 2)
 5:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tucn5"]
-texture = ExtResource("2_ej3ag")
+texture = ExtResource("4_35v6s")
 margins = Vector2i(1, 1)
 separation = Vector2i(2, 2)
 0:0/0 = 0
@@ -870,12 +870,12 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.9
 
 [sub_resource type="Resource" id="Resource_cpmbh"]
-script = ExtResource("10_cc2dn")
+script = ExtResource("10_7jpfk")
 name = "Wall"
 category = 0
 tile_map_index = Vector2i(0, 0)
 placing_mode = 1
-blueprint = ExtResource("10_w6rgw")
+blueprint = ExtResource("11_c0whs")
 
 [node name="Main" type="Node2D"]
 
@@ -905,7 +905,7 @@ layer_4/z_index = 1
 layer_4/navigation_enabled = false
 layer_4/tile_data = PackedInt32Array(2162712, 65536, 0, 2228237, 65536, 0, 2162705, 65536, 0, 1966099, 65536, 0, 1638414, 65536, 0, 1572870, 65536, 0, 2097159, 65536, 0, 2359304, 65536, 0, 2162698, 65536, 0, 1966090, 65536, 0, 2097166, 65536, 0, 1966097, 65536, 0, 1769491, 65536, 0, 1966110, 65536, 0, 1900577, 65536, 0, 1769499, 65536, 0, 2031641, 65536, 0, 1966103, 65536, 0, 2031640, 65536, 0, 2031639, 65536, 0, 2162711, 65536, 0, 2097174, 65536, 0, 1376280, 65536, 0, 1245206, 65536, 0, 1441815, 65536, 0, 1310743, 65536, 0, 1114140, 65536, 0, 1048604, 65536, 0, 1114139, 65536, 0, 983079, 65536, 0, 983081, 65536, 0, 1114154, 65536, 0, 1048619, 65536, 0, 983088, 65536, 0, 1179696, 65536, 0, 1245230, 65536, 0, 1114158, 65536, 0, 1048629, 65536, 0, 1376314, 65536, 0, 1441850, 65536, 0, 1572920, 65536, 0, 1572919, 65536, 0, 1572916, 65536, 0, 1900606, 65536, 0, 2293824, 65536, 0, 2424893, 65536, 0, 2293819, 65536, 0, 2228287, 65536, 0, 1966149, 65536, 0, 1835078, 65536, 0, 1769542, 65536, 0, 1507396, 65536, 0, 1441860, 65536, 0, 1376322, 65536, 0, 983105, 65536, 0, 917569, 65536, 0, 852033, 65536, 0, 720967, 65536, 0, 458821, 65536, 0, 458820, 65536, 0, 393284, 65536, 0, 327744, 65536, 0, 327743, 65536, 0, 327742, 65536, 0, 327739, 65536, 0, 327738, 65536, 0, 262202, 65536, 0, 262201, 65536, 0, 196649, 65536, 0, 131100, 65536, 0, 458768, 65536, 0, 655385, 65536, 0, 655386, 65536, 0, 327703, 65536, 0, 262152, 65536, 0, 917511, 65536, 0, 917510, 65536, 0, 1179652, 65536, 0, 1245188, 65536, 0, 1310724, 65536, 0, 1900545, 65536, 0, 2686980, 65536, 0, 2555906, 65536, 0, 2424834, 65536, 0, 2359300, 65536, 0, 1703944, 65536, 0, 1245195, 65536, 0, 851970, 65536, 0, 524290, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 393225, 65536, 0, 393226, 65536, 0, 393227, 65536, 0, 655373, 65536, 0, 851984, 65536, 0, 917520, 65536, 0, 917521, 131072, 0, 2424875, 131072, 0, 2424864, 131072, 0, 2359317, 131072, 0, 1769496, 131072, 0, 1638444, 131072, 0, 1310769, 131072, 0, 1179687, 131072, 0, 1572899, 131072, 0, 393237, 131072, 0, 393252, 131072, 0, 589872, 131072, 0, 720951, 131072, 0, 655418, 131072, 0, 458806, 131072, 0, 196656, 131072, 0, 131141, 131072, 0, 196683, 131072, 0, 1835079, 131072, 0, 2359367, 131072, 0, 2687039, 131072, 0, 2424886, 131072, 0, 2621486, 131072, 0, 2621479, 131072, 0, 2359333, 131072, 0, 2162723, 131072, 0, 2293793, 65536, 0, 2228254, 65536, 0, 2097184, 65536, 0, 2097186, 65536, 0, 2031649, 65536, 0, 2687003, 65536, 0, 3014680, 65536, 0, 3080213, 65536, 0, 3080212, 65536, 0, 3014674, 65536, 0, 3080206, 65536, 0, 3145741, 65536, 0, 3145734, 65536, 0, 3276801, 65536, 0, 3080194, 65536, 0, 2949129, 65536, 0, 2949134, 65536, 0, 2752529, 65536, 0, 2686991, 65536, 0, 2752523, 65536, 0, 2818061, 65536, 0, 2621456, 65536, 0, 2555927, 65536, 0, 2686997, 65536, 0, 2621462, 65536, 0, 2818080, 65536, 0, 2883624, 65536, 0, 2883625, 65536, 0, 2883620, 65536, 0, 2818117, 65536, 0, 3080254, 65536, 0, 3080253, 65536, 0, 3080252, 65536, 0, 3211332, 65536, 0, 3276875, 65536, 0, 2949194, 65536, 0, 2752586, 65536, 0, 2621511, 65536, 0, 2490441, 65536, 0, 2293834, 65536, 0, 2949187, 65536, 0, 3145793, 65536, 0, 2818114, 65536, 0, 2490436, 65536, 0, 2555970, 65536, 0, 3473472, 65536, 0, 3539019, 65536, 0, 3539013, 65536, 0, 3407941, 65536, 0, 3539003, 65536, 0, 3407931, 65536, 0, 3473430, 65536, 0, 3538960, 65536, 0, 3538949, 65536, 0, 3407882, 65536, 0, 3276816, 65536, 0, 3276810, 65536, 0, 3276807, 65536, 0, 3145738, 65536, 0, 3014664, 65536, 0, 3014661, 65536, 0, 2818059, 65536, 0, 2752530, 65536, 0, 2949139, 65536, 0, 2883608, 65536, 0, 2883607, 65536, 0, 2949144, 65536, 0, 2883613, 65536, 0, 2687007, 65536, 0, 2687011, 65536, 0, 2818083, 65536, 0, 2752546, 65536, 0, 2687009, 65536, 0, 2621477, 65536, 0, 2621475, 65536, 0, 2621476, 65536, 0, 2555944, 65536, 0, 2424872, 65536, 0, 2752555, 65536, 0, 2752552, 65536, 0, 2621483, 65536, 0, 2490417, 131072, 0, 2293804, 131072, 0, 2031643, 131072, 0, 1703958, 131072, 0, 1572889, 131072, 0, 917556, 131072, 0, 983099, 131072, 0, 589886, 131072, 0, 655427, 131072, 0, 1048647, 131072, 0, 1376330, 131072, 0, 1835074, 131072, 0, 1703998, 131072, 0, 1507344, 131072, 0, 1441802, 131072, 0, 1048585, 131072, 0, 720914, 131072, 0, 262162, 131072, 0, 131085, 131072, 0, 131079, 131072, 0, 2228225, 131072, 0, 2555910, 131072, 0, 2359323, 65536, 0, 2228252, 65536, 0, 2293785, 65536, 0, 2293778, 65536, 0, 1835029, 131072, 0, 1966094, 131072, 0, 1572883, 131072, 0)
 
-[node name="Pawn" parent="Ground" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("6_b7d87")]
+[node name="Pawn" parent="Ground" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("5_6rdfj")]
 position = Vector2(504, 353)
 path_finder = NodePath("../../PathFinding")
 ground_grid = NodePath("..")
@@ -913,7 +913,7 @@ item_manager = NodePath("../../ItemManager")
 active = true
 controllable = true
 
-[node name="Pawn2" parent="Ground" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("6_b7d87")]
+[node name="Pawn2" parent="Ground" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("5_6rdfj")]
 position = Vector2(642, 396)
 path_finder = NodePath("../../PathFinding")
 ground_grid = NodePath("..")
@@ -927,49 +927,49 @@ beard = 37
 [node name="MainCamera" type="Camera2D" parent="."]
 position = Vector2(559, 310)
 zoom = Vector2(4, 4)
-script = ExtResource("5_agm5g")
+script = ExtResource("6_v7woc")
 max_zoom = Vector2(5, 5)
 min_zoom = Vector2(1, 1)
 pan_speed = 10.0
 
-[node name="DayNightCycle" parent="." instance=ExtResource("3_5iipk")]
+[node name="DayNightCycle" parent="." instance=ExtResource("7_wb3w4")]
 visible = false
 
 [node name="PathFinding" type="Node" parent="." node_paths=PackedStringArray("tile_map")]
-script = ExtResource("3_1vv40")
+script = ExtResource("8_jmsku")
 tile_map = NodePath("../Ground")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sg83h")
 
 [node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("tile_map", "path_finder")]
-script = ExtResource("8_khdue")
+script = ExtResource("9_r2kgo")
 tile_map = NodePath("../Ground")
 path_finder = NodePath("../PathFinding")
-blueprints = Array[ExtResource("10_cc2dn")]([SubResource("Resource_cpmbh")])
+blueprints = Array[ExtResource("10_7jpfk")]([SubResource("Resource_cpmbh")])
 
-[node name="Cauldron" parent="." instance=ExtResource("9_gwr2c")]
+[node name="Cauldron" parent="." instance=ExtResource("12_h5602")]
 position = Vector2(546, 312)
 
-[node name="Pet" parent="." instance=ExtResource("10_j6vug")]
+[node name="Pet" parent="." instance=ExtResource("13_f2bl6")]
 position = Vector2(638, 279)
 
-[node name="Pet2" parent="." instance=ExtResource("10_j6vug")]
+[node name="Pet2" parent="." instance=ExtResource("13_f2bl6")]
 position = Vector2(576, 225)
 frame = 1
 
-[node name="Furniture" parent="." instance=ExtResource("11_cywll")]
+[node name="Furniture" parent="." instance=ExtResource("14_avb3n")]
 position = Vector2(520, 179)
 
 [node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("12_5i2c0")
+script = ExtResource("15_iprrl")
 
 [node name="pnl_bottom" type="Panel" parent="UI" node_paths=PackedStringArray("button_container")]
 anchors_preset = -1
 anchor_top = 0.95
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("13_giedh")
+script = ExtResource("16_as3bw")
 button_container = NodePath("button_container")
 
 [node name="button_container" type="HBoxContainer" parent="UI/pnl_bottom"]
@@ -1004,7 +1004,7 @@ anchors_preset = -1
 anchor_top = 0.85
 anchor_right = 0.3
 anchor_bottom = 0.95
-script = ExtResource("14_kqnur")
+script = ExtResource("17_1kn08")
 
 [node name="btn_walls" type="Button" parent="UI/Build"]
 layout_mode = 1

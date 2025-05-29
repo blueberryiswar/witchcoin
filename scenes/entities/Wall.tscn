@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vb6uu78i6kp6"]
 
-[ext_resource type="Script" uid="uid://byal8ynrrf7w7" path="res://assets/blueprints/Wall.gd" id="1_432mh"]
+[ext_resource type="Script" uid="uid://byal8ynrrf7w7" path="res://scripts/entities/Wall.gd" id="1_432mh"]
 
 [node name="Wall" type="Node"]
 script = ExtResource("1_432mh")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpl3m4517uyn8"]
 
-[ext_resource type="Script" uid="uid://bu4romyfhjbqh" path="res://assets/items/plants/ClickTarget.gd" id="1_n0os4"]
+[ext_resource type="Script" uid="uid://bu4romyfhjbqh" path="res://scripts/system/ClickTarget.gd" id="1_n0os4"]
 
 [node name="ClickTarget" type="Node"]
 script = ExtResource("1_n0os4")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8h0ws6i3mthi"]
 
 [ext_resource type="Texture2D" uid="uid://djgtnp6desk4x" path="res://assets/tilemaps/tree.png" id="1_opbrw"]
-[ext_resource type="Script" uid="uid://cdrqbo4i520r3" path="res://assets/items/plants/Tree.gd" id="2_cq56w"]
-[ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://assets/system/click_target.tscn" id="3_llbva"]
+[ext_resource type="Script" uid="uid://cdrqbo4i520r3" path="res://scripts/entities/Tree.gd" id="2_cq56w"]
+[ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://scenes/system/click_target.tscn" id="3_llbva"]
 
 [node name="Tree" type="Sprite2D" groups=["Tree"]]
 y_sort_enabled = true

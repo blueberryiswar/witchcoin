@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0mt7vittkj2g"]
 
 [ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_ba2j7"]
-[ext_resource type="Script" uid="uid://bd4sy0nnigf6w" path="res://assets/items/Item.gd" id="2_rkxqw"]
+[ext_resource type="Script" uid="uid://bd4sy0nnigf6w" path="res://scripts/entities/Item.gd" id="2_rkxqw"]
 
 [node name="Item" type="Sprite2D"]
 texture_filter = 1

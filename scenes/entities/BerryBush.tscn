@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://3m43gxuganju"]
 
 [ext_resource type="Texture2D" uid="uid://cmf68ko8gyh1n" path="res://assets/spritesheet/Berrybush.png" id="1_xvwcv"]
-[ext_resource type="Script" uid="uid://dyckde41df7wi" path="res://assets/items/plants/BerryBush.gd" id="2_qtaer"]
-[ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://assets/system/click_target.tscn" id="3_oo7n0"]
+[ext_resource type="Script" uid="uid://dyckde41df7wi" path="res://scripts/entities/BerryBush.gd" id="2_qtaer"]
+[ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://scenes/system/click_target.tscn" id="3_oo7n0"]
 
 [node name="BerryBush" type="Sprite2D"]
 y_sort_enabled = true
