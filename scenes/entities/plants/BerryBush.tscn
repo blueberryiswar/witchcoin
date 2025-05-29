@@ -10,7 +10,7 @@ texture_filter = 1
 texture = ExtResource("1_xvwcv")
 hframes = 3
 script = ExtResource("2_qtaer")
-harvestable_item = "res://assets/items/food/Berries.tscn"
+harvestable_item = "res://scenes/entities/food/Berries.tscn"
 
 [node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_oo7n0")]
 sprite = NodePath("..")

@@ -12,7 +12,7 @@ offset = Vector2(0, -18)
 hframes = 5
 frame = 3
 script = ExtResource("2_cq56w")
-harvestable_item = "res://assets/items/resources/Wood.tscn"
+harvestable_item = "res://scenes/entities/resources/Wood.tscn"
 
 [node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_llbva")]
 sprite = NodePath("..")
