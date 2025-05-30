@@ -927,6 +927,11 @@ beard = 37
 [node name="MainCamera" type="Camera2D" parent="."]
 position = Vector2(559, 310)
 zoom = Vector2(4, 4)
+limit_left = -1
+limit_top = 2
+limit_right = 1215
+limit_bottom = 898
+limit_smoothed = true
 script = ExtResource("6_v7woc")
 max_zoom = Vector2(5, 5)
 min_zoom = Vector2(1, 1)
