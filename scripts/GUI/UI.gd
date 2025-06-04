@@ -29,9 +29,9 @@ func _process(delta):
 			start_placing_pos = get_mouse_pos_tilemap()
 			set_ui_mode(UIMode.DRAGGING)
 	elif(current_ui_mode == UIMode.DRAGGING):
-		#if wall:
+		#if wall, pipes, wires etc:
 		#draw_prototype_in_line()
-		#if floor, area etc...
+		#if floor, area etc:
 		draw_prototype_in_rectangle()
 		
 		if Input.is_action_just_released("move"):
