@@ -42,6 +42,14 @@ func spawn_item_global(item_path : String, pos : Vector2):
 func remove_item(target_item):
 	tile_map.remove_child(target_item)
 	
+func reserve_item(item, item_type : String):
+	item.remove_from_group(item_type)
+	item.add_to_group("reserved")
+	
+func free_item(item, item_type : String):
+	item.remove_from_group("reserved")
+	item.add_to_group(item_type)
+	
 func find_nearest_item(my_position: Vector2, item_type : String):
 	var closestItem : Item = null
 	var distance = 9999999
@@ -53,6 +61,7 @@ func find_nearest_item(my_position: Vector2, item_type : String):
 			distance = distance_new
 			closestItem = item
 			print(distance, closestItem)
+			reserve_item(closestItem, item_type)
 	return closestItem
 		
 func _dir_contents(path : String, file_extension: String):
