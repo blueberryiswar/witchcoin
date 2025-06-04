@@ -39,6 +39,8 @@ func open_submenu(menu : String):
 		match menu:
 			"Walls":
 				load_build_menu(menu)
+			"Storage":
+				load_build_menu(menu)
 				
 func load_build_menu(menu : String):
 	var pnl_buildable = find_child("pnl_buildable")

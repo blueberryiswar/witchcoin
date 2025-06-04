@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://drw3vi6yaikxj"]
+[gd_scene load_steps=28 format=3 uid="uid://drw3vi6yaikxj"]
 
 [ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_qprb5"]
 [ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_ghbdp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://m8orijp8285g" path="res://scripts/system/ItemManager.gd" id="9_r2kgo"]
 [ext_resource type="Script" uid="uid://bxkr83601pk6p" path="res://scripts/system/Buildable.gd" id="10_7jpfk"]
 [ext_resource type="PackedScene" uid="uid://vb6uu78i6kp6" path="res://scenes/entities/blueprints/Wall.tscn" id="11_c0whs"]
+[ext_resource type="PackedScene" uid="uid://cw5io76cwjvlo" path="res://scenes/entities/blueprints/storage.tscn" id="12_ghbdp"]
 [ext_resource type="PackedScene" uid="uid://bv3jeixb5bkdm" path="res://scenes/entities/cauldron.tscn" id="12_h5602"]
 [ext_resource type="PackedScene" uid="uid://boiv3eqiy7oko" path="res://scenes/entities/pet.tscn" id="13_f2bl6"]
 [ext_resource type="PackedScene" uid="uid://6k6eya0tadnh" path="res://scenes/entities/furniture/furniture.tscn" id="14_avb3n"]
@@ -877,6 +878,15 @@ tile_map_index = Vector2i(0, 0)
 placing_mode = 1
 blueprint = ExtResource("11_c0whs")
 
+[sub_resource type="Resource" id="Resource_60qwg"]
+script = ExtResource("10_7jpfk")
+name = "Storage"
+category = 1
+tile_map_index = Vector2i(1, 1)
+placing_mode = 2
+blueprint = ExtResource("12_ghbdp")
+metadata/_custom_type_script = "uid://bxkr83601pk6p"
+
 [node name="Main" type="Node2D"]
 
 [node name="Ground" type="TileMap" parent="."]
@@ -950,7 +960,7 @@ environment = SubResource("Environment_sg83h")
 script = ExtResource("9_r2kgo")
 tile_map = NodePath("../Ground")
 path_finder = NodePath("../PathFinding")
-blueprints = Array[ExtResource("10_7jpfk")]([SubResource("Resource_cpmbh")])
+blueprints = Array[ExtResource("10_7jpfk")]([SubResource("Resource_cpmbh"), SubResource("Resource_60qwg")])
 
 [node name="Cauldron" parent="." instance=ExtResource("12_h5602")]
 position = Vector2(546, 312)

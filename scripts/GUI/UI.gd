@@ -29,7 +29,10 @@ func _process(delta):
 			start_placing_pos = get_mouse_pos_tilemap()
 			set_ui_mode(UIMode.DRAGGING)
 	elif(current_ui_mode == UIMode.DRAGGING):
-		draw_prototype_in_line()
+		#if wall:
+		#draw_prototype_in_line()
+		#if floor, area etc...
+		draw_prototype_in_rectangle()
 		
 		if Input.is_action_just_released("move"):
 			place_construction_orders()
@@ -43,6 +46,25 @@ func draw_prototype_at_cursor():
 		tilemap.set_cell(3,clear_cell,-1)
 		clear_cell = pos
 	pass
+	
+func draw_prototype_in_rectangle():
+	var pos : Vector2i = get_mouse_pos_tilemap()
+	
+	var diffX = abs(pos.x - start_placing_pos.x)
+	var diffY = abs(pos.y - start_placing_pos.y)
+	placing_positions = []	
+	
+	if diffX > diffY:
+		for i in range(start_placing_pos.y, pos.y, 1):
+			for j in range(start_placing_pos.x, pos.x, 1):
+				print(j,i)
+				placing_positions.append(Vector2i(j, i))
+	else:
+		for i in range(start_placing_pos.y, pos.y, -1):
+			for j in range(start_placing_pos.x, pos.x, -1):
+				print(j,i)
+				placing_positions.append(Vector2i(j, i))
+	tilemap.set_cells_terrain_connect(3,placing_positions,0,0)
 	
 func draw_prototype_in_line():
 	var pos : Vector2i = get_mouse_pos_tilemap()
