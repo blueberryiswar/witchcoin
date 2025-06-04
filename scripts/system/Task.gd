@@ -42,10 +42,9 @@ func on_reached_destination():
 func on_used_item():
 	get_current_sub_task().has_item = false
 
-
 func init_find_and_eat_food():
 	task_name = "Find and Eat Food"
-	
+		
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.FindItem
 	sub_task.target_item_type = "food"

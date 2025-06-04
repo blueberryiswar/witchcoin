@@ -34,7 +34,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
-	return
 	if !active: return
 	if event.is_action_pressed("act"):
 		move_to(get_global_mouse_position())
@@ -56,7 +55,6 @@ func _process(delta):
 	if(interaction_target != null):
 		if(interaction_target.interact(delta)):
 			interaction_target = null
-		
 	
 	hunger += delta * 0.01
 

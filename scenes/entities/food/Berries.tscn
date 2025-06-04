@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvc5k583wtwne"]
+[gd_scene load_steps=4 format=3 uid="uid://bvc5k583wtwne"]
 
 [ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_3oojh"]
 [ext_resource type="Script" uid="uid://bvxa846q7ulxf" path="res://scripts/entities/Food.gd" id="2_gicts"]
+[ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://scenes/system/click_target.tscn" id="3_glts5"]
 
 [node name="Berries" type="Sprite2D"]
 texture_filter = 1
@@ -15,3 +16,6 @@ item_name = "Fruit"
 item_description = "A fruit from an unknown source"
 count = 1
 item_type = 1
+
+[node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_glts5")]
+sprite = NodePath("..")

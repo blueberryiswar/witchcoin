@@ -29,7 +29,7 @@ func do_current_task(delta):
 		start_current_subtask(sub_task)
 		
 	if target_destination != Vector2.ZERO:
-		if pawn.global_position == target_destination:
+		if share_grid(pawn.global_position.x ,target_destination.x):
 			current_task.on_reached_destination()
 			on_finished_subtask()
 			target_destination = Vector2.ZERO
@@ -54,8 +54,8 @@ func start_current_subtask(sub_task : Task):
 				current_task.on_found_item(target_item)
 			on_finished_subtask()
 		Task.TaskType.WalkTo:
-			pawn.move_to(sub_task.target_item.global_position)
 			target_destination = sub_task.target_item.global_position
+			pawn.move_to(target_destination)
 		Task.TaskType.Pickup:
 			pawn.pick_up(sub_task.target_item)
 			current_task.on_finish_sub_task()
@@ -71,3 +71,6 @@ func start_current_subtask(sub_task : Task):
 func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null
 	current_action = PawnAction.Idle
+	
+func share_grid(pawn_posX, target_posX) -> bool:
+	return floor(pawn_posX/16) == floor(target_posX/16)
