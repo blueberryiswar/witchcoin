@@ -29,7 +29,7 @@ func do_current_task(delta):
 		start_current_subtask(sub_task)
 		
 	if target_destination != Vector2.ZERO:
-		if share_grid(pawn.global_position.x ,target_destination.x):
+		if share_grid(pawn.global_position ,target_destination):
 			current_task.on_reached_destination()
 			on_finished_subtask()
 			target_destination = Vector2.ZERO
@@ -72,5 +72,6 @@ func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null
 	current_action = PawnAction.Idle
 	
-func share_grid(pawn_posX, target_posX) -> bool:
-	return floor(pawn_posX/16) == floor(target_posX/16)
+func share_grid(pawn_pos, target_pos) -> bool:
+	print("pawn: " + str(floor(pawn_pos/16)) + " target: " + str(floor(target_pos/16)))
+	return floor(pawn_pos/16) == floor(target_pos/16)
