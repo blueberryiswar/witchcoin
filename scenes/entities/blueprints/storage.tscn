@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw5io76cwjvlo"]
+
+[ext_resource type="Script" uid="uid://b1ucph0w2wpxd" path="res://scripts/entities/storage.gd" id="1_pmovc"]
+
+[node name="Storage" type="Node"]
+script = ExtResource("1_pmovc")
+tileMapIndex = Vector2i(1, 0)
+placingMode = 2
