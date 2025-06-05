@@ -10,3 +10,4 @@ enum BuildCategory {WALL = 0, STORAGE = 1, FURNITURE = 2, PRODUCTION = 3}
 @export var placing_mode : UI.PlacingMode
 @export var terrain : UI.Terrain
 @export var blueprint : Resource
+@export var tile_id : UI.Tile_id

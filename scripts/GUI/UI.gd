@@ -6,7 +6,9 @@ class_name UI
 enum PlacingMode {SINGLE, ROW, RECTANGLE}
 enum UIMode {NORMAL, PLACING, DRAGGING}
 enum Terrain {WALL = 0, DIRTROAD = 1, STORAGE = 2}
+enum Tile_id {WALL = 3, STORAGE = 6}
 
+var current_tile_id : Tile_id = Tile_id.WALL 
 var current_ui_mode : UIMode = UIMode.NORMAL
 var current_placing_mode : PlacingMode = PlacingMode.SINGLE
 var current_terrain : Terrain = Terrain.WALL
@@ -46,8 +48,7 @@ func _process(delta):
 		
 func draw_prototype_at_cursor():
 	var pos : Vector2i = get_mouse_pos_tilemap()
-	
-	tilemap.set_cell(3,pos,2,Vector2i(3,3))
+	tilemap.set_cell(3,pos,current_tile_id,Vector2i(0,0))
 	if (pos != clear_cell):
 		tilemap.set_cell(3,clear_cell,-1)
 		clear_cell = pos
@@ -112,6 +113,9 @@ func set_placing_mode(new_placing_mode : PlacingMode):
 func set_terrain(new_terrain : Terrain):
 	current_terrain = new_terrain
 
+func set_tileID(new_tile_id : Tile_id):
+	current_tile_id = new_tile_id
+
 func get_mouse_pos_tilemap():
 	return Vector2i(get_parent().get_global_mouse_position().x / 16, get_parent().get_global_mouse_position().y / 16)
 
@@ -120,6 +124,7 @@ func begin_placing(buildable : Buildable):
 	placing_prototype = buildable.blueprint.instantiate()
 	set_placing_mode(buildable.placing_mode)
 	set_terrain(buildable.terrain)
+	set_tileID(buildable.tile_id)
 	set_ui_mode(UIMode.PLACING)
 	close_menus()
 

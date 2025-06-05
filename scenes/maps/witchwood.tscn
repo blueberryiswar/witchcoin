@@ -889,6 +889,7 @@ tile_map_index = Vector2i(0, 0)
 placing_mode = 1
 terrain = 0
 blueprint = ExtResource("11_c0whs")
+tile_id = 3
 
 [sub_resource type="Resource" id="Resource_60qwg"]
 script = ExtResource("10_7jpfk")
@@ -898,6 +899,7 @@ tile_map_index = Vector2i(1, 1)
 placing_mode = 2
 terrain = 2
 blueprint = ExtResource("12_ghbdp")
+tile_id = 6
 metadata/_custom_type_script = "uid://bxkr83601pk6p"
 
 [node name="Main" type="Node2D"]
