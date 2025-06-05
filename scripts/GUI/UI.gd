@@ -56,16 +56,23 @@ func draw_prototype_in_rectangle():
 	
 	var diffX = abs(pos.x - start_placing_pos.x)
 	var diffY = abs(pos.y - start_placing_pos.y)
+	var range_x = range(start_placing_pos.x, pos.x + 1, 1)
+	var range_y = range(start_placing_pos.y, pos.y + 1, 1)
 	placing_positions = []	
 	
-	if diffX > diffY:
-		for i in range(start_placing_pos.y, pos.y, 1):
-			for j in range(start_placing_pos.x, pos.x, 1):
-				placing_positions.append(Vector2i(j, i))
+	if diffX > diffY:		
+		range_y = range(start_placing_pos.y, pos.y + 1, 1)
+	else:		
+		range_y = range(start_placing_pos.y, pos.y - 1, -1)
+	if pos.x > start_placing_pos.x:
+		range_x = range(start_placing_pos.x, pos.x + 1, 1)
 	else:
-		for i in range(start_placing_pos.y, pos.y, -1):
-			for j in range(start_placing_pos.x, pos.x, -1):
-				placing_positions.append(Vector2i(j, i))
+		range_x = range(start_placing_pos.x, pos.x - 1, -1)
+		
+	for i in range_y:
+		for j in range_x:
+			placing_positions.append(Vector2i(j, i))
+	
 	tilemap.set_cells_terrain_connect(3,placing_positions,0,0)
 	
 func draw_prototype_in_line():
