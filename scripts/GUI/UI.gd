@@ -7,6 +7,7 @@ enum PlacingMode {SINGLE, ROW, RECTANGLE}
 enum UIMode {NORMAL, PLACING, DRAGGING}
 
 var current_ui_mode : UIMode = UIMode.NORMAL
+var current_placing_mode : PlacingMode = PlacingMode.SINGLE
 var placing_prototype = null
 var start_placing_pos : Vector2i = Vector2i.ZERO
 var clear_cell : Vector2i = Vector2i.ZERO
@@ -29,10 +30,11 @@ func _process(delta):
 			start_placing_pos = get_mouse_pos_tilemap()
 			set_ui_mode(UIMode.DRAGGING)
 	elif(current_ui_mode == UIMode.DRAGGING):
-		#if wall, pipes, wires etc:
-		#draw_prototype_in_line()
-		#if floor, area etc:
-		draw_prototype_in_rectangle()
+		match current_placing_mode:
+			PlacingMode.ROW:
+				draw_prototype_in_line()
+			PlacingMode.RECTANGLE:
+				draw_prototype_in_rectangle()		
 		
 		if Input.is_action_just_released("move"):
 			place_construction_orders()
@@ -95,6 +97,9 @@ func place_construction_orders():
 	
 func set_ui_mode(new_mode : UIMode):
 	current_ui_mode = new_mode
+	
+func set_placing_mode(new_placing_mode : PlacingMode):
+	current_placing_mode = new_placing_mode
 
 func get_mouse_pos_tilemap():
 	return Vector2i(get_parent().get_global_mouse_position().x / 16, get_parent().get_global_mouse_position().y / 16)
@@ -102,6 +107,7 @@ func get_mouse_pos_tilemap():
 func begin_placing(buildable : Buildable):
 	print("Build: " + buildable.name)
 	placing_prototype = buildable.blueprint.instantiate()
+	set_placing_mode(buildable.placing_mode)
 	set_ui_mode(UIMode.PLACING)
 	close_menus()
 
