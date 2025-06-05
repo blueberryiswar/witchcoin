@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://drw3vi6yaikxj"]
+[gd_scene load_steps=30 format=3 uid="uid://drw3vi6yaikxj"]
 
 [ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_qprb5"]
 [ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_ghbdp"]
 [ext_resource type="Texture2D" uid="uid://c241v6dpskcmv" path="res://assets/tilemaps/gbstyle.png" id="3_60qwg"]
 [ext_resource type="Texture2D" uid="uid://mt45d7bdoeax" path="res://assets/tilemaps/walls.png" id="4_35v6s"]
 [ext_resource type="PackedScene" uid="uid://bau0w6f25kfso" path="res://scenes/entities/pawn.tscn" id="5_6rdfj"]
+[ext_resource type="Texture2D" uid="uid://bdbj3vmcyuxo7" path="res://assets/tilemaps/areas.png" id="5_60qwg"]
 [ext_resource type="Script" uid="uid://7akjxv5nnp43" path="res://scripts/system/CameraController.gd" id="6_v7woc"]
 [ext_resource type="PackedScene" uid="uid://2mc0l5hewlhm" path="res://scenes/system/day_night_cycle.tscn" id="7_wb3w4"]
 [ext_resource type="Script" uid="uid://b386hhtvow4j0" path="res://scripts/system/PathFinding.gd" id="8_jmsku"]
@@ -839,6 +840,10 @@ separation = Vector2i(2, 2)
 2:5/0/terrains_peering_bit/top_side = 0
 2:5/0/custom_data_1 = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60qwg"]
+texture = ExtResource("5_60qwg")
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_bgetq"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
@@ -859,6 +864,7 @@ sources/2 = SubResource("TileSetAtlasSource_wg4ud")
 sources/3 = SubResource("TileSetAtlasSource_tucn5")
 sources/0 = SubResource("TileSetAtlasSource_ed0bp")
 sources/1 = SubResource("TileSetAtlasSource_84eb0")
+sources/6 = SubResource("TileSetAtlasSource_60qwg")
 
 [sub_resource type="Environment" id="Environment_sg83h"]
 background_mode = 3
