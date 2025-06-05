@@ -58,9 +58,9 @@ func draw_prototype_in_rectangle():
 	var diffY = abs(pos.y - start_placing_pos.y)
 	var range_x = range(start_placing_pos.x, pos.x + 1, 1)
 	var range_y = range(start_placing_pos.y, pos.y + 1, 1)
-	placing_positions = []	
+	placing_positions = []
 	
-	if diffX > diffY:		
+	if diffX > diffY:
 		range_y = range(start_placing_pos.y, pos.y + 1, 1)
 	else:		
 		range_y = range(start_placing_pos.y, pos.y - 1, -1)

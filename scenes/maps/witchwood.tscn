@@ -843,6 +843,8 @@ separation = Vector2i(2, 2)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60qwg"]
 texture = ExtResource("5_60qwg")
 0:0/0 = 0
+0:0/0/terrain_set = 2
+0:0/0/terrain = 0
 
 [sub_resource type="TileSet" id="TileSet_bgetq"]
 occlusion_layer_0/light_mask = 1
@@ -853,6 +855,9 @@ terrain_set_0/terrain_0/color = Color(0.819608, 0.635294, 0.529412, 1)
 terrain_set_1/mode = 2
 terrain_set_1/terrain_0/name = "Dirtroad"
 terrain_set_1/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_2/mode = 0
+terrain_set_2/terrain_0/name = "Storage 0"
+terrain_set_2/terrain_0/color = Color(0.862745, 0.345098, 0.513726, 1)
 navigation_layer_0/layers = 1
 custom_data_layer_0/name = "walk_difficulty"
 custom_data_layer_0/type = 3

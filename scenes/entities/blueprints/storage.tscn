@@ -4,4 +4,5 @@
 
 [node name="Storage" type="Node"]
 script = ExtResource("1_pmovc")
+tileMapIndex = Vector2i(1, 0)
 placingMode = 2
