@@ -28,7 +28,7 @@ func spawn_objects():
 				if object_data != null and object_data.get_custom_data("type"):
 					spawn_item(object_data.get_custom_data("type"), tile_position)
 				
-	$"../TileMap/data".enabled = false
+	tile_map_layers[4].enabled = false
 	
 func spawn_item(item_path : String, pos : Vector2i):
 	var item = get_item_by_name(item_path)
