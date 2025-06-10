@@ -2,31 +2,34 @@ extends Node
 
 class_name ItemManager
 
-@export var tile_map : TileMap
+@export var tile_map : TileMapLayer
+var tile_map_layers : Array[TileMapLayer]
 @export var path_finder : Pathfinder
 var item_prototypes = []
 @export var blueprints : Array[Buildable]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	tile_map_layers = [%Ground, %Shadow, %build, %construction, %data]
 	load_food()
 	load_resources()
 	load_plants()
 	spawn_objects()
 
 func spawn_objects():
-	for x in tile_map.get_used_rect().size.x:
-		for y in tile_map.get_used_rect().size.y:
-			var tile_position = Vector2i(
-				x + tile_map.get_used_rect().position.x
-				,y + tile_map.get_used_rect().position.y )
-			var object_data = tile_map.get_cell_tile_data(4,tile_position)
-			
-			if object_data != null and object_data.get_custom_data("type"):
-				spawn_item(object_data.get_custom_data("type"), tile_position)
+	for layer in tile_map_layers:
+		for x in layer.get_used_rect().size.x:
+			for y in layer.get_used_rect().size.y:
+				var tile_position = Vector2i(
+					x + layer.get_used_rect().position.x
+					,y + layer.get_used_rect().position.y )
+				var object_data = layer.get_cell_tile_data(tile_position)
 				
-	tile_map.set_layer_enabled(4, false)
-
+				if object_data != null and object_data.get_custom_data("type"):
+					spawn_item(object_data.get_custom_data("type"), tile_position)
+				
+	$"../TileMap/data".enabled = false
+	
 func spawn_item(item_path : String, pos : Vector2i):
 	var item = get_item_by_name(item_path)
 	if(item == null): return

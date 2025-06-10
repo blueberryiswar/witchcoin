@@ -3,7 +3,7 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @export var path_finder : Pathfinder
-@export var ground_grid  : TileMap
+@export var ground_grid  : TileMapLayer
 @export var item_manager : ItemManager
 @export var clothes : int = 19
 @export var pants : int = 2
