@@ -5,9 +5,12 @@ extends Panel
 var active_pawns : Array[String]
 var names : String = "Active pawns:"
 
-# Just a workaround. Would be better if text label only updates after changing active pawn
+# Just a workaround. Would be better if text_label only updates after changing active pawn
 
 func _process(delta):
+	update_label()
+	
+func update_label():
 	var pawns = get_tree().get_nodes_in_group("Pawn")
 	for pawn in pawns:
 		if pawn.active and !active_pawns.has(pawn.pawn_name):
