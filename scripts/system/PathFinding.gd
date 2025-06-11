@@ -7,7 +7,6 @@ var astar_grid
 @export var tile_map : TileMapLayer
 @export var player : Node2D
 
-
 # Called when the no de enters the scene tree for the first time.
 func _ready():
 	astar_grid = AStarGrid2D.new()
