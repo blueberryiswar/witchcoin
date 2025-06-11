@@ -9,6 +9,7 @@ func _ready():
 	update_label()
 
 func update_label():
+	visible = true
 	var pawns = get_tree().get_nodes_in_group("Pawn")
 	for pawn in pawns:
 		if pawn.active and !active_pawns.has(pawn.pawn_name):
