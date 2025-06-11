@@ -3,7 +3,7 @@ extends Panel
 
 @onready var text_label: Label = $Label
 var active_pawns : Array[String]
-var names : String = "Active pawn: "
+var names : String = "Active pawns:"
 
 # Just a workaround. Would be better if text label only updates after changing active pawn
 
@@ -14,8 +14,8 @@ func _process(delta):
 			active_pawns.append(pawn.pawn_name)
 		elif !pawn.active and active_pawns.has(pawn.pawn_name):
 			active_pawns.erase(pawn.pawn_name)
-	names = "Active pawn: "
+	names = "Active pawns:"
 	for name in active_pawns:
-			names += name
+			names += " " + name + ", "
 	text_label.text = ""
 	text_label.text = str(names)
