@@ -18,12 +18,12 @@ var clear_cell : Vector2i = Vector2i.ZERO
 var placing_positions : Array[Vector2i]= []
 @export var button_height = 0.05
 @onready var item_manager = $"../ItemManager"
-@onready var tilemap = %Ground
+@onready var tilemap = %TileMap
 
 func _process(delta):
 	if current_ui_mode != UIMode.NORMAL and Input.is_action_just_pressed("act"):
 		set_ui_mode(UIMode.NORMAL)
-		tilemap.clear_layer(3)
+		#tilemap.clear_layer(3)
 		placing_prototype = null
 		start_placing_pos = Vector2i.ZERO
 		placing_positions = []
@@ -48,9 +48,9 @@ func _process(delta):
 		
 func draw_prototype_at_cursor():
 	var pos : Vector2i = get_mouse_pos_tilemap()
-	tilemap.set_cell(3,pos,current_tile_id,Vector2i(0,0))
+	tilemap.construction.set_cell(pos,current_tile_id,Vector2i(0,0))
 	if (pos != clear_cell):
-		tilemap.set_cell(3,clear_cell,-1)
+		tilemap.construction.set_cell(clear_cell,-1)
 		clear_cell = pos
 	pass
 	
@@ -75,7 +75,7 @@ func draw_prototype_in_rectangle():
 	for i in range_y:
 		for j in range_x:
 			placing_positions.append(Vector2i(j, i))
-	tilemap.set_cells_terrain_connect(3,placing_positions,current_terrain,0)
+	tilemap.construction.set_cells_terrain_connect(placing_positions,current_terrain,0)
 	
 func draw_prototype_in_line():
 	var pos : Vector2i = get_mouse_pos_tilemap()
@@ -99,7 +99,7 @@ func draw_prototype_in_line():
 		for i in range:
 			placing_positions.append(Vector2i(start_placing_pos.x, i))
 			
-	tilemap.set_cells_terrain_connect(3,placing_positions,0,0)
+	tilemap.construction.set_cells_terrain_connect(placing_positions,0,0)
 
 func place_construction_orders():
 	pass
@@ -130,4 +130,5 @@ func begin_placing(buildable : Buildable):
 
 func close_menus():
 	for child in get_children():
-		child.close_menus()
+		if child.has_method("close_menus"):
+			child.close_menus()

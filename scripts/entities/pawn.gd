@@ -23,6 +23,8 @@ var interaction_target : Item = null
 @export var active : bool = false
 @export var controllable : bool = false
 
+var current_pos : Vector2
+
 signal active_pawn_changed()
 
 # Called when the node enters the scene tree for the first time.
@@ -45,6 +47,8 @@ func _input(event):
 		pass
 
 func _process(delta):
+	#current_pos = floor(global_position/16)
+	#path_finder.astar_grid.set_point_solid(current_pos,true)
 	if(is_moving):
 		if(active):
 			update_line()
@@ -63,6 +67,7 @@ func _process(delta):
 	hunger += delta * 0.01
 
 func _physics_process(delta):
+	
 	if current_id_path.is_empty():
 		is_moving = false
 		return
