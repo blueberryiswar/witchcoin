@@ -19,7 +19,10 @@ func update_label():
 	names = "Active pawns:"
 	for name in active_pawns:
 		names += " " + name + ", "
-	names = names.erase(names.length()-2,2)
+	if names != "Active pawns:":
+		names = names.erase(names.length()-2,2)
+	else:
+		names = "Active pawns: none"
 	print(names)
 	text_label.text = ""
 	text_label.text = str(names)

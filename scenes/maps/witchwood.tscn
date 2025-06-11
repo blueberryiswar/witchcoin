@@ -1113,7 +1113,7 @@ offset_left = 7.0
 offset_top = 6.0
 offset_right = 522.0
 offset_bottom = 29.0
-text = "Active pawns:"
+text = "Active pawns: none"
 
 [connection signal="active_pawn_changed" from="TileMap/Pawn" to="UI/pnl-top" method="_on_pawn_active_pawn_changed"]
 [connection signal="active_pawn_changed" from="TileMap/Pawn2" to="UI/pnl-top" method="_on_pawn_2_active_pawn_changed"]
