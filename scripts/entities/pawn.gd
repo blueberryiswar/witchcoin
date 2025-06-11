@@ -23,6 +23,8 @@ var interaction_target : Item = null
 @export var active : bool = false
 @export var controllable : bool = false
 
+signal active_pawn_changed()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Pawn")
@@ -147,3 +149,4 @@ func on_leftclick():
 	else:
 		active = not active
 		controllable = not controllable
+	active_pawn_changed.emit()
