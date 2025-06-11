@@ -135,6 +135,6 @@ func update_position():
 	path_finder.move_solid(old_position, global_position)
 	old_position = global_position
 	
-func on_rightclick():
+func on_leftclick():
 	active = not active
 	controllable = not controllable
