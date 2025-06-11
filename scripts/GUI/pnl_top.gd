@@ -23,7 +23,6 @@ func update_label():
 		names = names.erase(names.length()-2,2)
 	else:
 		names = "Active pawns: none"
-	print(names)
 	text_label.text = ""
 	text_label.text = str(names)
 
@@ -31,4 +30,7 @@ func _on_pawn_active_pawn_changed():
 	update_label()
 
 func _on_pawn_2_active_pawn_changed():
+	update_label()
+
+func _on_pawn_3_active_pawn_changed():
 	update_label()

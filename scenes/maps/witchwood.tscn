@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://drw3vi6yaikxj"]
+[gd_scene load_steps=32 format=4 uid="uid://drw3vi6yaikxj"]
 
 [ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_qprb5"]
 [ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_ghbdp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mt45d7bdoeax" path="res://assets/tilemaps/walls.png" id="4_35v6s"]
 [ext_resource type="PackedScene" uid="uid://bau0w6f25kfso" path="res://scenes/entities/pawn.tscn" id="5_6rdfj"]
 [ext_resource type="Texture2D" uid="uid://bdbj3vmcyuxo7" path="res://assets/tilemaps/areas.png" id="5_60qwg"]
+[ext_resource type="Script" uid="uid://dyr7266v6dltg" path="res://scripts/system/tile_map.gd" id="6_6rdfj"]
 [ext_resource type="Script" uid="uid://7akjxv5nnp43" path="res://scripts/system/CameraController.gd" id="6_v7woc"]
 [ext_resource type="PackedScene" uid="uid://2mc0l5hewlhm" path="res://scenes/system/day_night_cycle.tscn" id="7_wb3w4"]
 [ext_resource type="Script" uid="uid://b386hhtvow4j0" path="res://scripts/system/PathFinding.gd" id="8_jmsku"]
@@ -914,6 +915,7 @@ material = SubResource("CanvasItemMaterial_roao7")
 position = Vector2(-1, 2)
 tile_map_data = PackedByteArray("AAACAAIAAAAFAAEAAAADAAIAAAAFAAEAAAAEAAMAAAAFAAEAAAAFAAQAAAAFAAEAAAAGAAQAAAAFAAEAAAAHAAUAAAAFAAEAAAAIAAYAAAAFAAEAAAAJAAYAAAAFAAEAAAAKAAcAAAAFAAEAAAALAAgAAAAFAAEAAAAMAAkAAAAFAAEAAAANAAkAAAAFAAEAAAAOAAoAAAAFAAEAAAAPAAsAAAAFAAEAAAAQAAwAAAAFAAEAAAARAAwAAAAFAAEAAAASAA0AAAAFAAEAAAATAA4AAAAFAAEAAAAUAA8AAAAFAAEAAAAVAA8AAAAFAAEAAAAWABAAAAAFAAEAAAAXABEAAAAFAAEAAAAYABEAAAAFAAEAAAAZABIAAAAFAAEAAAAaABMAAAAFAAEAAAAbABQAAAAFAAEAAAAcABQAAAAFAAEAAAAdABUAAAAFAAEAAAAeABUAAAAFAAEAAAAfABYAAAAFAAEAAAAgABcAAAAFAAEAAAAhABgAAAAFAAEAAAAiABgAAAAFAAEAAAAjABkAAAAFAAEAAAAkABkAAAAFAAEAAAAlABoAAAAFAAEAAAAmABoAAAAFAAEAAAAnABsAAAAFAAEAAAAoABsAAAAFAAEAAAAAAAAAAAAFAAEAAAABAAEAAAAFAAEAAAACAAEAAAAFAAEAAAADAAEAAAAFAAEAAAAEAAIAAAAFAAEAAAAFAAIAAAAFAAEAAAAGAAMAAAAFAAEAAAAHAAMAAAAFAAEAAAAIAAQAAAAFAAEAAAAJAAUAAAAFAAEAAAAKAAYAAAAFAAEAAAALAAYAAAAFAAEAAAAMAAcAAAAFAAEAAAANAAgAAAAFAAEAAAAOAAgAAAAFAAEAAAAPAAkAAAAFAAEAAAAQAAkAAAAFAAEAAAARAAoAAAAFAAEAAAASAAoAAAAFAAEAAAATAAsAAAAFAAEAAAAUAAsAAAAFAAEAAAAVAAwAAAAFAAEAAAAWAA0AAAAFAAEAAAAXAA0AAAAFAAEAAAAYAA4AAAAFAAEAAAAZAA8AAAAFAAEAAAAaAA8AAAAFAAEAAAAbABAAAAAFAAEAAAAcABEAAAAFAAEAAAAdABEAAAAFAAEAAAAeABIAAAAFAAEAAAAfABMAAAAFAAEAAAAgABMAAAAFAAEAAAAhABQAAAAFAAEAAAAiABUAAAAFAAEAAAAjABUAAAAFAAEAAAAkABYAAAAFAAEAAAAlABYAAAAFAAEAAAAmABcAAAAFAAEAAAAnABcAAAAFAAEAAAAoABgAAAAFAAEAAAApABgAAAAFAAEAAAAqABkAAAAFAAEAAAArABoAAAAFAAEAAAAsABsAAAAFAAEAAAAtABwAAAAFAAEAAAAuABwAAAAFAAEAAAAvAB0AAAAFAAEAAAAwAB4AAAAFAAEAAAAxAB8AAAAFAAEAAAAyACAAAAAFAAEAAAAzACEAAAAFAAEAAAA0ACIAAAAFAAEAAAA1ACMAAAAFAAEAAAA2ACQAAAAFAAEAAAA3ACUAAAAFAAEAAAA4ACYAAAAFAAEAAAA5ACcAAAAFAAEAAAA6ACgAAAAFAAEAAAA7ACkAAAAFAAEAAAA8ACoAAAAFAAEAAAA9ACsAAAAFAAEAAAA+ACwAAAAFAAEAAAA/ACwAAAAFAAEAAABAAC0AAAAFAAEAAABBAC4AAAAFAAEAAABCAC4AAAAFAAEAAABDAC8AAAAFAAEAAABEADAAAAAFAAEAAABFADAAAAAFAAEAAABGADEAAAAFAAEAAABHADIAAAAFAAEAAABIADMAAAAFAAEAAABIADQAAAAFAAEAAABJADUAAAAFAAEAAABJADYAAAAFAAEAAABJADcAAAAFAAEAAABJADgAAAAFAAEAAABJADkAAAAFAAEAAABKADoAAAAFAAEAAABLADoAAAAFAAEAAABLADsAAAAFAAEAAABKADkAAAAFAAEAAABIADcAAAAFAAEAAAA=")
 tile_set = SubResource("TileSet_bgetq")
+script = ExtResource("6_6rdfj")
 
 [node name="Pawn" parent="TileMap" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("5_6rdfj")]
 position = Vector2(504, 353)
@@ -935,6 +937,18 @@ pants = 8
 hair = 24
 hats = 42
 beard = 37
+
+[node name="Pawn3" parent="TileMap" node_paths=PackedStringArray("path_finder", "ground_grid", "item_manager") instance=ExtResource("5_6rdfj")]
+position = Vector2(564, 193)
+path_finder = NodePath("../../PathFinding")
+ground_grid = NodePath("..")
+item_manager = NodePath("../../ItemManager")
+pawn_name = "Ugdalph"
+clothes = 18
+pants = 1
+hair = 24
+hats = 39
+beard = 1
 
 [node name="Ground" type="TileMapLayer" parent="TileMap"]
 unique_name_in_owner = true
@@ -1117,3 +1131,4 @@ text = "Active pawns: none"
 
 [connection signal="active_pawn_changed" from="TileMap/Pawn" to="UI/pnl-top" method="_on_pawn_active_pawn_changed"]
 [connection signal="active_pawn_changed" from="TileMap/Pawn2" to="UI/pnl-top" method="_on_pawn_2_active_pawn_changed"]
+[connection signal="active_pawn_changed" from="TileMap/Pawn3" to="UI/pnl-top" method="_on_pawn_3_active_pawn_changed"]

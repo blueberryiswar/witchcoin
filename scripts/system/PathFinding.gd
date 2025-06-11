@@ -21,8 +21,8 @@ func _ready():
 			var tile_position = Vector2i(
 				x + tile_map.get_used_rect().position.x
 				,y + tile_map.get_used_rect().position.y )
-			var build_data = tile_map.get_child(4).get_cell_tile_data(tile_position)
-			var ground_data = tile_map.get_child(2).get_cell_tile_data(tile_position)
+			var build_data = tile_map.build.get_cell_tile_data(tile_position)
+			var ground_data = tile_map.ground.get_cell_tile_data(tile_position)
 			
 			if build_data != null and build_data.get_custom_data("solid") or ground_data != null and ground_data.get_custom_data("solid"):
 				astar_grid.set_point_solid(tile_position)
