@@ -3,7 +3,7 @@ extends Panel
 
 @onready var text_label: Label = $Label
 var active_pawns : Array[String]
-var names : String = "Active pawns:"
+var names : String
 
 func _ready():
 	update_label()
@@ -18,7 +18,9 @@ func update_label():
 			active_pawns.erase(pawn.pawn_name)
 	names = "Active pawns:"
 	for name in active_pawns:
-			names += " " + name + ", "
+		names += " " + name + ", "
+	names = names.erase(names.length()-2,2)
+	print(names)
 	text_label.text = ""
 	text_label.text = str(names)
 
