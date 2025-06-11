@@ -136,5 +136,10 @@ func update_position():
 	old_position = global_position
 	
 func on_leftclick():
+	if not active and not controllable:
+		var pawns = get_tree().get_nodes_in_group("Pawn")
+		for pawn in pawns:
+			pawn.active = false
+			pawn.controllable = false
 	active = not active
 	controllable = not controllable
