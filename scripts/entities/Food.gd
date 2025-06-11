@@ -14,5 +14,5 @@ func _ready():
 	super._ready()
 	add_to_group("food")
 	
-func on_click():
+func on_rightclick():
 	pass

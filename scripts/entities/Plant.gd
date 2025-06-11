@@ -19,7 +19,7 @@ func interact(delta) -> bool:
 	else:
 		return false
 		
-func on_click():
+func on_rightclick():
 	var task_managers = get_tree().get_nodes_in_group("task_manager")
 	for task_manager in task_managers:
 		task_manager.add_task(Task.TaskType.Harvest, self)
