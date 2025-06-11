@@ -15,4 +15,4 @@ func _ready():
 	add_to_group("food")
 	
 func on_click():
-	print("click")
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://drw3vi6yaikxj"]
+[gd_scene load_steps=31 format=4 uid="uid://drw3vi6yaikxj"]
 
 [ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_qprb5"]
 [ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_ghbdp"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://3a485htvckhn" path="res://scripts/GUI/UI.gd" id="15_iprrl"]
 [ext_resource type="Script" uid="uid://chthvgxg7jsff" path="res://scripts/GUI/pnl_bottom.gd" id="16_as3bw"]
 [ext_resource type="Script" uid="uid://po08t5fp32c4" path="res://scripts/GUI/pnl_architect.gd" id="17_1kn08"]
+[ext_resource type="Script" uid="uid://b13bwv1ks5f3j" path="res://scripts/GUI/pnl_top.gd" id="20_35v6s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_roao7"]
 
@@ -919,6 +920,7 @@ position = Vector2(504, 353)
 path_finder = NodePath("../../PathFinding")
 ground_grid = NodePath("..")
 item_manager = NodePath("../../ItemManager")
+pawn_name = "Belinda"
 active = true
 controllable = true
 
@@ -927,6 +929,7 @@ position = Vector2(642, 396)
 path_finder = NodePath("../../PathFinding")
 ground_grid = NodePath("..")
 item_manager = NodePath("../../ItemManager")
+pawn_name = "Maximillian"
 clothes = 16
 pants = 8
 hair = 24
@@ -1096,3 +1099,17 @@ anchors_preset = -1
 anchor_left = 1.016
 anchor_right = 3.325
 anchor_bottom = 1.0
+
+[node name="pnl-top" type="Panel" parent="UI"]
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 535.0
+offset_bottom = 41.0
+script = ExtResource("20_35v6s")
+
+[node name="Label" type="Label" parent="UI/pnl-top"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 522.0
+offset_bottom = 29.0

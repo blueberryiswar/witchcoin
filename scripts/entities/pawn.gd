@@ -5,6 +5,7 @@ extends Node2D
 @export var path_finder : Pathfinder
 @export var ground_grid  : TileMapLayer
 @export var item_manager : ItemManager
+@export var pawn_name : String = "Bob"
 @export var clothes : int = 19
 @export var pants : int = 2
 @export var hair : int = 25
@@ -24,6 +25,7 @@ var interaction_target : Item = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("Pawn")
 	animation_player.play("idle")
 	$Body/Hair.frame = hair
 	$Body/Clothes.frame = clothes
@@ -132,3 +134,7 @@ func update_line():
 func update_position():
 	path_finder.move_solid(old_position, global_position)
 	old_position = global_position
+	
+func on_rightclick():
+	active = not active
+	controllable = not controllable
