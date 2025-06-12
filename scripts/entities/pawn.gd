@@ -23,7 +23,7 @@ var interaction_target : Item = null
 @export var active : bool = false
 @export var controllable : bool = false
 
-var current_pos : Vector2
+var current_pos : Vector2i
 
 signal active_pawn_changed()
 
@@ -47,8 +47,7 @@ func _input(event):
 		pass
 
 func _process(delta):
-	#current_pos = floor(global_position/16)
-	#path_finder.astar_grid.set_point_solid(current_pos,true)
+	update_current_pos()
 	if(is_moving):
 		if(active):
 			update_line()
@@ -90,6 +89,24 @@ func move_to(pos : Vector2):
 	if(id_path.is_empty()) == false:
 		current_id_path = id_path
 		current_point_path = path_finder.get_my_points(global_position, end_target_position)
+
+func update_current_pos():
+	var pos_temp : Vector2i = floor(global_position/16)
+	if pos_temp == current_pos:
+		return
+	if current_pos != null:
+		print("solid entfernt: " + str(current_pos))
+		path_finder.astar_grid.set_point_solid(current_pos,false)
+	current_pos = pos_temp
+	if end_target_position != Vector2.ZERO:
+		move_to(end_target_position)
+	path_finder.astar_grid.set_point_solid(current_pos,true)
+	path_finder.astar_grid.update()
+	print("solid gesetzt: " + str(current_pos))
+	
+
+	
+	
 
 func pick_up(target_item : Item):
 	item_manager.remove_item(target_item)

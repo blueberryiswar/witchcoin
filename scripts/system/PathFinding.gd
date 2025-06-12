@@ -25,6 +25,7 @@ func _ready():
 			
 			if build_data != null and build_data.get_custom_data("solid") or ground_data != null and ground_data.get_custom_data("solid"):
 				astar_grid.set_point_solid(tile_position)
+				
 
 func get_my_path(start, to):
 	var id_path = astar_grid.get_id_path(
