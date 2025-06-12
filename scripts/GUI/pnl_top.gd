@@ -9,13 +9,16 @@ func _ready():
 	update_label()
 
 func update_label():
-	visible = true
 	var pawns = get_tree().get_nodes_in_group("Pawn")
 	for pawn in pawns:
 		if pawn.active and !active_pawns.has(pawn.pawn_name):
 			active_pawns.append(pawn.pawn_name)
 		elif !pawn.active and active_pawns.has(pawn.pawn_name):
 			active_pawns.erase(pawn.pawn_name)
+	if active_pawns == []:
+		visible = false
+	else:
+		visible = true
 	names = "Active pawns:"
 	for name in active_pawns:
 		names += " " + name + ", "

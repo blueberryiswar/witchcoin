@@ -30,7 +30,7 @@ func open_submenu(menu : String):
 		if submenu != self:
 			if menu == submenu.name:
 				submenu.set_visible(!submenu.is_visible())
-			else:
+			elif submenu != $"../pnl-top":
 				submenu.set_visible(false)
 	
 func arrange_buttons():
