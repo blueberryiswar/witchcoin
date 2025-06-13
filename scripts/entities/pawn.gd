@@ -26,6 +26,7 @@ var interaction_target : Item = null
 var current_pos : Vector2i
 
 signal active_pawn_changed()
+signal abort_task()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +42,7 @@ func _ready():
 func _input(event):
 	if !active: return
 	if event.is_action_pressed("act"):
+		abort_task.emit()
 		move_to(get_global_mouse_position())
 	if event.is_action_pressed("move"):
 		pass

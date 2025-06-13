@@ -82,3 +82,7 @@ func on_finished_subtask():
 	
 func share_grid(pawn_pos, target_pos) -> bool:
 	return floor(pawn_pos/16) == floor(target_pos/16)
+
+func _on_pawn_abort_task():
+	current_task = null
+	current_action = PawnAction.Idle

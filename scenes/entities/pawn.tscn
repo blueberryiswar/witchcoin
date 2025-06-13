@@ -285,3 +285,5 @@ script = ExtResource("5_i63vw")
 
 [node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_5ebhw")]
 sprite = NodePath("../Body")
+
+[connection signal="abort_task" from="." to="PawnAI" method="_on_pawn_abort_task"]

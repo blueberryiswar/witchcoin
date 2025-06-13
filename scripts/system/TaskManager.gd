@@ -10,7 +10,7 @@ func request_task():
 		var task = Task.new()
 		task.init_find_and_eat_food()
 		return task
-	if !pawn.is_moving:
+	if !pawn.active and !pawn.is_moving:
 		var task = Task.new()
 		task.going_for_a_walk()
 		return task
