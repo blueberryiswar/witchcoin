@@ -1115,6 +1115,7 @@ anchor_right = 3.325
 anchor_bottom = 1.0
 
 [node name="pnl-top" type="Panel" parent="UI"]
+visible = false
 offset_left = 3.0
 offset_top = 5.0
 offset_right = 535.0

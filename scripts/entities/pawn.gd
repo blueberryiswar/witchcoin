@@ -14,7 +14,7 @@ extends Node2D
 var current_id_path : Array[Vector2i]
 var current_point_path : PackedVector2Array
 var old_position : Vector2
-var end_target_position : Vector2
+var end_target_position : Vector2i
 var current_anim = "idle"
 var is_moving = false
 var in_hand : Item = null
@@ -66,7 +66,6 @@ func _process(delta):
 	hunger += delta * 0.01
 
 func _physics_process(delta):
-	
 	if current_id_path.is_empty():
 		is_moving = false
 		return
@@ -92,21 +91,20 @@ func move_to(pos : Vector2):
 
 func update_current_pos():
 	var pos_temp : Vector2i = floor(global_position/16)
+	var target_temp : Vector2i = floor(end_target_position/16)
 	if pos_temp == current_pos:
 		return
 	if current_pos != null:
 		print("solid entfernt: " + str(current_pos))
 		path_finder.astar_grid.set_point_solid(current_pos,false)
 	current_pos = pos_temp
-	if end_target_position != Vector2.ZERO:
+	if end_target_position != Vector2i.ZERO:
 		move_to(end_target_position)
+		if path_finder.astar_grid.is_point_solid(target_temp):
+			get_new_end_target_position()
 	path_finder.astar_grid.set_point_solid(current_pos,true)
 	path_finder.astar_grid.update()
-	print("solid gesetzt: " + str(current_pos))
-	
-
-	
-	
+	print("solid gesetzt: " + str(current_pos))	
 
 func pick_up(target_item : Item):
 	item_manager.remove_item(target_item)
@@ -158,6 +156,14 @@ func update_line():
 func update_position():
 	path_finder.move_solid(old_position, global_position)
 	old_position = global_position
+	
+func get_new_end_target_position():
+	current_id_path.erase(-1)
+	var temp = current_id_path[-1]
+	if temp != null:
+		temp += Vector2i(1,1)
+		temp *= 16
+		end_target_position = temp
 	
 func on_leftclick():
 	if !Input.is_action_pressed("mult_select"):
