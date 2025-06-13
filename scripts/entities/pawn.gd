@@ -163,7 +163,9 @@ func get_new_end_target_position():
 	if temp != null:
 		temp += Vector2i(1,1)
 		temp *= 16
-		end_target_position = temp
+	else:
+		temp = end_target_position + Vector2i(16,16)
+	end_target_position = temp
 	
 func on_leftclick():
 	if !Input.is_action_pressed("mult_select"):
