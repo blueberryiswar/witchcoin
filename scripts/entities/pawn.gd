@@ -100,8 +100,6 @@ func update_current_pos():
 	current_pos = pos_temp
 	if end_target_position != Vector2i.ZERO:
 		move_to(end_target_position)
-		if path_finder.astar_grid.is_point_solid(target_temp):
-			get_new_end_target_position()
 	path_finder.astar_grid.set_point_solid(current_pos,true)
 	path_finder.astar_grid.update()
 	print("solid gesetzt: " + str(current_pos))	
@@ -156,16 +154,6 @@ func update_line():
 func update_position():
 	path_finder.move_solid(old_position, global_position)
 	old_position = global_position
-	
-func get_new_end_target_position():
-	current_id_path.erase(-1)
-	var temp = current_id_path[-1]
-	if temp != null:
-		temp += Vector2i(1,1)
-		temp *= 16
-	else:
-		temp = end_target_position + Vector2i(16,16)
-	end_target_position = temp
 	
 func on_leftclick():
 	if !Input.is_action_pressed("mult_select"):

@@ -30,7 +30,8 @@ func _ready():
 func get_my_path(start, to):
 	var id_path = astar_grid.get_id_path(
 		tile_map.local_to_map(start), 
-		tile_map.local_to_map(to)
+		tile_map.local_to_map(to),
+		true
 		).slice(1)
 	return id_path
 
