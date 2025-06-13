@@ -172,3 +172,15 @@ func on_leftclick():
 		active = not active
 		controllable = not controllable
 	active_pawn_changed.emit()
+	
+func random_target_position():
+	var a = choose([-1,-2,-3,1,2,3])
+	var b = choose([-1,-2,-3,1,2,3])
+	var c = (current_pos + Vector2i(a,b))
+	print(pawn_name + " target: " + str(c))
+	return c
+	
+func choose(array: Array[int]):
+	if !array.is_empty():
+		array.shuffle()
+		return array.front()
