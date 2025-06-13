@@ -36,7 +36,6 @@ func _ready():
 	$Body/Beard.frame = beard
 	$Body/Pants.frame = pants
 	$Body/Hats.frame = hats
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
@@ -49,6 +48,7 @@ func _input(event):
 func _process(delta):
 	update_current_pos()
 	if(is_moving):
+		hunger += delta * 0.01 # moving makes hungry :D
 		if(active):
 			update_line()
 		update_animation("walk")

@@ -38,7 +38,8 @@ func get_my_path(start, to):
 func get_my_points(start, to):
 	var point_path = astar_grid.get_point_path(
 		tile_map.local_to_map(start), 
-		tile_map.local_to_map(to)
+		tile_map.local_to_map(to),
+		true
 		).slice(1)
 	return point_path
 
