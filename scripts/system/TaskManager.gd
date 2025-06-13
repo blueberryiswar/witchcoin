@@ -10,10 +10,10 @@ func request_task():
 		var task = Task.new()
 		task.init_find_and_eat_food()
 		return task
-	#if pawn.hunger < 0.5:
-		#var task = Task.new()
-		#task.going_for_a_walk()
-		#return task
+	if !pawn.is_moving:
+		var task = Task.new()
+		task.going_for_a_walk()
+		return task
 	if(len(task_queue) > 0):
 		return task_queue.pop_front()
 

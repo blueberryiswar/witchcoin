@@ -72,9 +72,9 @@ func start_current_subtask(sub_task : Task):
 			pawn.interact(sub_task.target_item)
 			interaction_target = sub_task.target_item
 		Task.TaskType.WalkToRandom:
-			var random_pos = pawn.random_target_position()
-			pawn.move_to(random_pos * 16)
-			target_destination = random_pos * 16
+			var random_pos = pawn.random_target_position() * 16
+			pawn.move_to(random_pos)
+			target_destination = random_pos
 
 func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null
