@@ -93,6 +93,10 @@ func update_current_pos():
 	var pos_temp : Vector2i = floor(global_position/16)
 	var target_temp : Vector2i = floor(end_target_position/16)
 	if pos_temp == current_pos:
+		if !path_finder.astar_grid.is_point_solid(current_pos):
+			path_finder.astar_grid.set_point_solid(current_pos,true)
+			path_finder.astar_grid.update()
+			print("solid gesetzt: " + str(current_pos))	
 		return
 	if current_pos != null:
 		print("solid entfernt: " + str(current_pos))
