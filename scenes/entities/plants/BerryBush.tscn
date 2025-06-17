@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://3m43gxuganju"]
+[gd_scene load_steps=6 format=3 uid="uid://3m43gxuganju"]
 
 [ext_resource type="Texture2D" uid="uid://cmf68ko8gyh1n" path="res://assets/spritesheet/Berrybush.png" id="1_xvwcv"]
+[ext_resource type="Shader" uid="uid://w8hqbgnahycv" path="res://shader/BerryBush_shake.gdshader" id="1_y1vfw"]
 [ext_resource type="Script" uid="uid://dyckde41df7wi" path="res://scripts/entities/BerryBush.gd" id="2_qtaer"]
 [ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://scenes/system/click_target.tscn" id="3_oo7n0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekemp"]
+resource_local_to_scene = true
+shader = ExtResource("1_y1vfw")
+shader_parameter/shake_intensity = 1.0
+shader_parameter/shake_speed = 20.0
 
 [node name="BerryBush" type="Sprite2D"]
 y_sort_enabled = true
 texture_filter = 1
+material = SubResource("ShaderMaterial_ekemp")
+position = Vector2(0, -11)
 texture = ExtResource("1_xvwcv")
 hframes = 3
 script = ExtResource("2_qtaer")
