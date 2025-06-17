@@ -13,6 +13,7 @@ func _ready():
 	
 func interact(delta) -> bool:
 	progress += 1.0 / harvest_difficulty * delta
+	play_interaction_animation()
 	if progress >= 1.0:
 		drop_item()
 		return true
@@ -27,6 +28,12 @@ func on_rightclick():
 	
 func drop_item():
 	item_manager.spawn_item_global(harvestable_item, position)
+
+func play_interaction_animation():
+	pass
+	
+func stop_interaction_animation():
+	pass
 	
 func is_finished():
 	return progress >= 1.0
