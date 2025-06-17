@@ -17,14 +17,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(pawn.recreation_need)
 	if current_task != null:
 		do_current_task(delta)
+		if pawn.recreation:
+			pawn.recreation_need -= delta * 0.05
+		else:
+			pawn.recreation_need += delta * 0.05
 	else:
 		current_task = task_manager.request_task()
 
 func do_current_task(delta):
 	var sub_task = current_task.get_current_sub_task()
-	
 	if current_action == PawnAction.Idle:
 		start_current_subtask(sub_task)
 		

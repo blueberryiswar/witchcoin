@@ -10,9 +10,10 @@ func request_task():
 		var task = Task.new()
 		task.init_find_and_eat_food()
 		return task
-	if !pawn.active and !pawn.is_moving:
+	if !pawn.active and !pawn.is_moving and pawn.recreation_need >= 1.0:
 		var task = Task.new()
 		task.going_for_a_walk()
+		pawn.recreation = true
 		return task
 	if(len(task_queue) > 0):
 		return task_queue.pop_front()
@@ -21,6 +22,7 @@ func add_task(task_type : Task.TaskType, target : Item = null):
 	if(!pawn.controllable): return
 	
 	var task = Task.new()
+	pawn.recreation = false
 	
 	if(task_type == Task.TaskType.Harvest):
 		task.init_harvest_plant(target)
