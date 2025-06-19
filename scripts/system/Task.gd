@@ -82,7 +82,7 @@ func init_harvest_plant(target):
 	sub_task.task_type = TaskType.Harvest
 	sub_tasks.append(sub_task)
 	
-func init_haul_item(target, storage):
+func init_haul_item(target):
 	task_name = "Hauling Items"
 	
 	var sub_task = Task.new()
@@ -97,7 +97,7 @@ func init_haul_item(target, storage):
 	
 	sub_task = Task.new()
 	sub_task.task_type = TaskType.WalkTo
-	sub_task.target_item = storage
+	#sub_task.target_item = storage
 	sub_task.has_item = true
 	sub_tasks.append(sub_task)
 	

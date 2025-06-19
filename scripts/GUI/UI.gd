@@ -75,7 +75,10 @@ func draw_prototype_in_rectangle():
 	for i in range_y:
 		for j in range_x:
 			placing_positions.append(Vector2i(j, i))
-	tilemap.construction.set_cells_terrain_connect(placing_positions,current_terrain,0)
+	if current_terrain == 2:
+		tilemap.build.set_cells_terrain_connect(placing_positions,current_terrain,0)
+	else:
+		tilemap.construction.set_cells_terrain_connect(placing_positions,current_terrain,0)
 	
 func draw_prototype_in_line():
 	var pos : Vector2i = get_mouse_pos_tilemap()
@@ -98,7 +101,7 @@ func draw_prototype_in_line():
 			
 		for i in range:
 			placing_positions.append(Vector2i(start_placing_pos.x, i))
-			
+	
 	tilemap.construction.set_cells_terrain_connect(placing_positions,0,0)
 
 func place_construction_orders():

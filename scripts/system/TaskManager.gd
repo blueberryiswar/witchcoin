@@ -26,6 +26,8 @@ func add_task(task_type : Task.TaskType, target : Item = null):
 	
 	if(task_type == Task.TaskType.Harvest):
 		task.init_harvest_plant(target)
+	if(task_type == Task.TaskType.Store):
+		task.init_haul_item(target)
 		
 	task_queue.append(task)
 		

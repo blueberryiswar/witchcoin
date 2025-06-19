@@ -17,7 +17,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(pawn.recreation_need)
 	if current_task != null:
 		do_current_task(delta)
 		if pawn.recreation:
