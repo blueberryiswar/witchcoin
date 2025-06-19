@@ -2,7 +2,7 @@ extends Node
 
 class_name Task
 
-enum TaskType {BaseTask, FindItem, WalkTo, Pickup, Eat, Manipulate, Harvest, Carry, Drop, Store, WalkToRandom}
+enum TaskType {BaseTask, FindItem, WalkTo, Pickup, Eat, Manipulate, Harvest, Carry, Drop, Store, WalkToRandom, WalkToStorage}
 
 var task_name : String
 var task_type : TaskType = TaskType.BaseTask
@@ -96,9 +96,7 @@ func init_haul_item(target):
 	sub_tasks.append(sub_task)
 	
 	sub_task = Task.new()
-	sub_task.task_type = TaskType.WalkTo
-	#sub_task.target_item = storage
-	sub_task.has_item = true
+	sub_task.task_type = TaskType.WalkToStorage
 	sub_tasks.append(sub_task)
 	
 	sub_task = Task.new()
@@ -110,5 +108,3 @@ func going_for_a_walk():
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.WalkToRandom
 	sub_tasks.append(sub_task)
-	
-	

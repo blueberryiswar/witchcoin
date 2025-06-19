@@ -78,7 +78,13 @@ func start_current_subtask(sub_task : Task):
 			var random_pos = pawn.random_target_position() * 16
 			pawn.move_to(random_pos)
 			target_destination = random_pos
-
+		Task.TaskType.WalkToStorage:
+			var storage = pawn.path_finder.find_nearest_storage(pawn.global_position)
+			pawn.move_to(storage)
+			target_destination = storage
+		Task.TaskType.Store:
+			pawn.drop_item()
+			
 func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null
 	current_action = PawnAction.Idle

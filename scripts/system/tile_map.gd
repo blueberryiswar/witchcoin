@@ -12,6 +12,9 @@ var constructions = {} # {Vector2i:Construction}
 
 func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	var newConstruction = placingPrototype.duplicate()
+	
+	newConstruction.add_to_group(newConstruction.get_name())
+	
 	constructions[tileMapGridPos] = newConstruction
 	newConstruction.position = gridToGlobalPos(tileMapGridPos)
 	newConstruction.tilemapManager = self
