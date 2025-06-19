@@ -80,8 +80,12 @@ func start_current_subtask(sub_task : Task):
 			target_destination = random_pos
 		Task.TaskType.WalkToStorage:
 			var storage = pawn.path_finder.find_nearest_storage(pawn.global_position)
-			pawn.move_to(storage)
-			target_destination = storage
+			if storage != Vector2.ZERO:
+				pawn.move_to(storage)
+				target_destination = storage
+			else:
+				current_task = null
+				current_action = PawnAction.Idle
 		Task.TaskType.Store:
 			pawn.drop_item()
 			
