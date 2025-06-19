@@ -21,6 +21,15 @@ window/size/viewport_width=1000
 window/size/viewport_height=900
 window/subwindows/embed_subwindows=false
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "purple",
+"res://scenes/": "green",
+"res://scripts/": "pink",
+"res://shader/": "blue"
+}
+
 [input]
 
 move={

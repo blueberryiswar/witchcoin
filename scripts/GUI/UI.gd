@@ -23,7 +23,7 @@ var placing_positions : Array[Vector2i]= []
 func _process(delta):
 	if current_ui_mode != UIMode.NORMAL and Input.is_action_just_pressed("act"):
 		set_ui_mode(UIMode.NORMAL)
-		#tilemap.clear_layer(3)
+		tilemap.construction.clear()
 		placing_prototype = null
 		start_placing_pos = Vector2i.ZERO
 		placing_positions = []
@@ -75,10 +75,8 @@ func draw_prototype_in_rectangle():
 	for i in range_y:
 		for j in range_x:
 			placing_positions.append(Vector2i(j, i))
-	if current_terrain == 2:
-		tilemap.build.set_cells_terrain_connect(placing_positions,current_terrain,0)
-	else:
-		tilemap.construction.set_cells_terrain_connect(placing_positions,current_terrain,0)
+			
+	tilemap.construction.set_cells_terrain_connect(placing_positions,current_terrain,0)
 	
 func draw_prototype_in_line():
 	var pos : Vector2i = get_mouse_pos_tilemap()
@@ -105,7 +103,10 @@ func draw_prototype_in_line():
 	tilemap.construction.set_cells_terrain_connect(placing_positions,0,0)
 
 func place_construction_orders():
-	pass
+	for pos in tilemap.construction.get_used_cells():
+		tilemap.placeConstructionOrder(placing_prototype, pos)
+	
+	tilemap.construction.clear()
 	
 func set_ui_mode(new_mode : UIMode):
 	current_ui_mode = new_mode
