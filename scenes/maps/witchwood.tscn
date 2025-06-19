@@ -534,6 +534,7 @@ separation = Vector2i(2, 2)
 0:4/0/terrains_peering_bit/top_left_corner = 0
 0:4/0/terrains_peering_bit/top_side = 0
 0:4/0/terrains_peering_bit/top_right_corner = 0
+0:4/0/custom_data_1 = true
 1:4/0 = 0
 1:4/0/terrain_set = 0
 1:4/0/terrain = 0

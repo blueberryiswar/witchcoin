@@ -6,6 +6,7 @@ extends TileMapLayer
 @onready var build: TileMapLayer = %build
 @onready var construction: TileMapLayer = %construction
 @onready var data: TileMapLayer = %data
+@onready var path_finder: Pathfinder = $"../PathFinding"
 
 var constructions = {} # {Vector2i:Construction}
 
@@ -14,14 +15,14 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	constructions[tileMapGridPos] = newConstruction
 	newConstruction.position = gridToGlobalPos(tileMapGridPos)
 	newConstruction.tilemapManager = self
-
 	if build.get_cell_tile_data(tileMapGridPos) == null:
 		build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
 		onConstructionComplete(newConstruction)
+	makeCellsSolid([tileMapGridPos])
 
 func onConstructionComplete(construction):
 	var construction_pos = globalToGridPos(construction.position)
-	var cells = []
+	var cells : Array[Vector2i]
 	var surroundingCells = build.get_surrounding_cells(construction_pos)
 	if !surroundingCells.is_empty():
 		for cell in surroundingCells:
@@ -32,8 +33,27 @@ func onConstructionComplete(construction):
 						cells.append(cell)
 	if !cells.is_empty():
 		build.set_cells_terrain_connect(cells,construction.terrain,0)
+		makeCellsSolid(cells)
 	else:
 		return
+		
+func makeCellsSolid(cells : Array[Vector2i]):
+	for cell in cells:
+		var tile_data = build.get_cell_tile_data(cell)
+		if tile_data != null:
+			var tile_solid = tile_data.get_custom_data("solid")
+			if tile_solid != null:
+				if tile_solid:
+					path_finder.astar_grid.set_point_solid(cell,true)
+
+func makeCellsNotSolid(cells : Array[Vector2i]):
+	for cell in cells:
+		var tile_data = build.get_cell_tile_data(cell)
+		if tile_data != null:
+			var tile_solid = tile_data.get_custom_data("solid")
+			if tile_solid != null:
+				if !tile_solid:
+					path_finder.astar_grid.set_point_solid(cell,false)
 
 func globalToGridPos(globalPos : Vector2) -> Vector2i:
 	var x = globalPos.x / tile_set.tile_size.x
