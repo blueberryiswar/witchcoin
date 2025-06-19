@@ -15,4 +15,6 @@ func _ready():
 	add_to_group("food")
 	
 func on_rightclick():
-	pass
+	var task_managers = get_tree().get_nodes_in_group("task_manager")
+	for task_manager in task_managers:
+		task_manager.add_task(Task.TaskType.Store, self)

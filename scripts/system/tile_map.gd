@@ -14,6 +14,7 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	constructions[tileMapGridPos] = newConstruction
 	newConstruction.position = gridToGlobalPos(tileMapGridPos)
 	newConstruction.tilemapManager = self
+
 	if build.get_cell_tile_data(tileMapGridPos) == null:
 		build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
 		onConstructionComplete(newConstruction)
