@@ -101,6 +101,7 @@ func init_haul_item(target):
 	
 	sub_task = Task.new()
 	sub_task.task_type = TaskType.Store
+	sub_tasks.append(sub_task)
 	
 func going_for_a_walk():
 	task_name = "Going for a Walk"

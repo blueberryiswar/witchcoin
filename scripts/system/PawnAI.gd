@@ -84,8 +84,10 @@ func start_current_subtask(sub_task : Task):
 				pawn.move_to(storage)
 				target_destination = storage
 			else:
+				print("No storage area found")
 				current_task = null
 				current_action = PawnAction.Idle
+				pawn.drop_item()
 		Task.TaskType.Store:
 			pawn.drop_item()
 			
