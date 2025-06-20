@@ -965,20 +965,20 @@ anchor_right = 0.3
 anchor_bottom = 0.95
 script = ExtResource("17_1kn08")
 
-[node name="btn_walls" type="Button" parent="UI/Build"]
+[node name="btn_structure" type="Button" parent="UI/Build"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
-text = "Walls"
+text = "Structure"
 
-[node name="btn_storage" type="Button" parent="UI/Build"]
+[node name="btn_area" type="Button" parent="UI/Build"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-text = "Storage"
+text = "Area"
 
 [node name="btn_furniture" type="Button" parent="UI/Build"]
 layout_mode = 1

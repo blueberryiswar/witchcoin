@@ -2,7 +2,7 @@ class_name Buildable
 
 extends Resource
 
-enum BuildCategory {WALL = 0, STORAGE = 1, FURNITURE = 2, PRODUCTION = 3}
+enum BuildCategory {STRUCTURE = 0, AREA = 1, FURNITURE = 2, PRODUCTION = 3}
 
 @export var name : String
 @export var category : BuildCategory

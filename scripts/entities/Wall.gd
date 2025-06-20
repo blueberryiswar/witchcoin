@@ -5,6 +5,7 @@ extends Node
 @export var terrain : UI.Terrain = UI.Terrain.WALL
 @export var tile_id : UI.Tile_id = UI.Tile_id.WALL
 @export var buildDifficulty : float = 1
+@export var category : Buildable.BuildCategory = Buildable.BuildCategory.STRUCTURE
 
 var buildProgress : float = 0
 

@@ -37,16 +37,42 @@ func open_submenu(menu : String):
 		current_buildable = menu
 		find_child("pnl_buildable").set_visible(true)
 		match menu:
-			"Walls":
-				load_build_menu(menu)
-			"Storage":
-				load_build_menu(menu)
+			"Structure":
+				load_structure_menu(menu)
+			"Area":
+				load_area_menu(menu)
 				
-func load_build_menu(menu : String):
+func load_structure_menu(menu : String):
 	var pnl_buildable = find_child("pnl_buildable")
 	
-	var buildables = UI.item_manager.blueprints
-	#["Cancel", "Wall", "Door"]
+	var blueprints = UI.item_manager.blueprints
+	var buildables : Array[Buildable] = []
+	
+	for i in range(len(blueprints)):
+		if blueprints[i].category == 0:
+			buildables.append(blueprints[i])
+	
+	for i in range(pnl_buildable.get_child_count()):
+		pnl_buildable.get_child(i).queue_free()
+		
+	for i in range(len(buildables)):
+		var button = Button.new()
+		pnl_buildable.add_child(button)
+		button.text = buildables[i].name
+		var button_size = 64.0
+		button.size = Vector2(button_size, button_size)
+		button.position = Vector2(button_size * i + 4 * i, pnl_buildable.size.y - button_size)
+		button.connect("pressed", on_button_pressed_buildable.bind(buildables[i]))
+		
+func load_area_menu(menu : String):
+	var pnl_buildable = find_child("pnl_buildable")
+	
+	var blueprints = UI.item_manager.blueprints
+	var buildables : Array[Buildable] = []
+	
+	for i in range(len(blueprints)):
+		if blueprints[i].category == 1:
+			buildables.append(blueprints[i])
 	
 	for i in range(pnl_buildable.get_child_count()):
 		pnl_buildable.get_child(i).queue_free()
