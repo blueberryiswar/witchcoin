@@ -3,6 +3,7 @@ extends TileMapLayer
 
 @onready var ground: TileMapLayer = %Ground
 @onready var shadow: TileMapLayer = %Shadow
+@onready var structure: TileMapLayer = %structure
 @onready var build: TileMapLayer = %build
 @onready var construction: TileMapLayer = %construction
 @onready var data: TileMapLayer = %data
@@ -21,7 +22,6 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	if build.get_cell_tile_data(tileMapGridPos) == null:
 		build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
 		onConstructionComplete(newConstruction)
-	makeCellsSolid([tileMapGridPos])
 
 func onConstructionComplete(construction):
 	var construction_pos = globalToGridPos(construction.position)
@@ -36,7 +36,6 @@ func onConstructionComplete(construction):
 						cells.append(cell)
 	if !cells.is_empty():
 		build.set_cells_terrain_connect(cells,construction.terrain,0)
-		makeCellsSolid(cells)
 	else:
 		return
 		
