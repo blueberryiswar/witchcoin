@@ -14,28 +14,31 @@ var constructions = {} # {Vector2i:Construction}
 func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	var newConstruction = placingPrototype.duplicate()
 	
-	newConstruction.add_to_group(newConstruction.get_name())
-	
 	constructions[tileMapGridPos] = newConstruction
 	newConstruction.position = gridToGlobalPos(tileMapGridPos)
 	newConstruction.tilemapManager = self
-	if build.get_cell_tile_data(tileMapGridPos) == null:
-		build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
-		onConstructionComplete(newConstruction)
-
-func onConstructionComplete(construction):
+	if newConstruction.category == 1:
+		if structure.get_cell_tile_data(tileMapGridPos) == null:
+			structure.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
+			onConstructionComplete(newConstruction,structure)
+	else:
+		if build.get_cell_tile_data(tileMapGridPos) == null:
+			build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
+			onConstructionComplete(newConstruction,build)
+		
+func onConstructionComplete(construction,layer):
 	var construction_pos = globalToGridPos(construction.position)
 	var cells : Array[Vector2i]
-	var surroundingCells = build.get_surrounding_cells(construction_pos)
+	var surroundingCells = layer.get_surrounding_cells(construction_pos)
 	if !surroundingCells.is_empty():
 		for cell in surroundingCells:
-			var tileID = build.get_cell_source_id(cell)
+			var tileID = layer.get_cell_source_id(cell)
 			if tileID != null:
 				if tileID == construction.tile_id:
 					if !cells.has(cell):
 						cells.append(cell)
 	if !cells.is_empty():
-		build.set_cells_terrain_connect(cells,construction.terrain,0)
+		layer.set_cells_terrain_connect(cells,construction.terrain,0)
 	else:
 		return
 		

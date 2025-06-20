@@ -109,3 +109,6 @@ func going_for_a_walk():
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.WalkToRandom
 	sub_tasks.append(sub_task)
+	
+func building_structure():
+	task_name = "Building Structure"
