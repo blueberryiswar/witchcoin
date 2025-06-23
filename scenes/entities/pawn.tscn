@@ -280,7 +280,7 @@ script = ExtResource("3_6048b")
 [node name="TaskManager" type="Node" parent="." groups=["task_manager"]]
 script = ExtResource("4_4rwv0")
 
-[node name="PawnAI" type="Node" parent="."]
+[node name="PawnAI" type="Node" parent="." groups=["pawn_AI"]]
 script = ExtResource("5_i63vw")
 
 [node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_5ebhw")]

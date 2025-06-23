@@ -112,29 +112,6 @@ func going_for_a_walk():
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.WalkToRandom
 	sub_tasks.append(sub_task)
-	
-func getting_requierements(target):
-	task_name = "Getting Requierements Ready"
-	var sub_task = Task.new()
-	sub_task.task_type = TaskType.FindItem
-	sub_task.target_item_type = target
-	sub_tasks.append(sub_task)
-		
-	sub_task = Task.new()
-	sub_task.task_type = TaskType.WalkTo
-	sub_tasks.append(sub_task)
-		
-	sub_task = Task.new()
-	sub_task.task_type = TaskType.Pickup
-	sub_tasks.append(sub_task)
-		
-	sub_task = Task.new()
-	sub_task.task_type = TaskType.WalkTo
-	sub_tasks.append(sub_task)
-		
-	sub_task = Task.new()
-	sub_task.task_type = TaskType.Store
-	sub_tasks.append(sub_task)
 		
 func building_structure(target):
 	task_name = "Building Structure"	
@@ -146,8 +123,30 @@ func building_structure(target):
 		var b = target.requierementsReady
 		
 		while a != b:
+			
 			var item = target.getNeededItem()
-			getting_requierements(item)
+			var sub_task = Task.new()
+			
+			sub_task.task_type = TaskType.FindItem
+			sub_task.target_item_type = item
+			sub_tasks.append(sub_task)
+				
+			sub_task = Task.new()
+			sub_task.task_type = TaskType.WalkTo
+			sub_tasks.append(sub_task)
+				
+			sub_task = Task.new()
+			sub_task.task_type = TaskType.Pickup
+			sub_tasks.append(sub_task)
+				
+			sub_task = Task.new()
+			sub_task.task_type = TaskType.WalkTo
+			sub_tasks.append(sub_task)
+				
+			sub_task = Task.new()
+			sub_task.task_type = TaskType.Store
+			sub_tasks.append(sub_task)
+			
 		readyToBuild = true
 	
 	var sub_task = Task.new()

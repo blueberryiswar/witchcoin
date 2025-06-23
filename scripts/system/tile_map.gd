@@ -11,6 +11,8 @@ extends TileMapLayer
 
 var constructions = {} # {Vector2i:Construction}
 
+signal readyToBuild(construction)
+
 func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	var newConstruction = placingPrototype.duplicate()
 	
@@ -24,11 +26,10 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	else:
 		if build.get_cell_tile_data(tileMapGridPos) == null:
 			build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
-			var task_managers = get_tree().get_nodes_in_group("task_manager")
-			for task_manager in task_managers:
-				if task_manager.pawn.active:
-					task_manager.add_task(Task.TaskType.Construct, newConstruction)
-					return
+			var pawnAIs = get_tree().get_nodes_in_group("pawn_AI")
+			for pawnAI in pawnAIs:
+				if pawnAI.current_action == pawnAI.PawnAction.Idle:
+					pawnAI.task_manager.add_task(Task.TaskType.Construct, newConstruction)
 			
 func placeFinishedStructure(construction, tileMapGridPos):
 	var newStructure = construction.duplicate()
