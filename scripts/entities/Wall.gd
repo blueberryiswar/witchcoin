@@ -20,9 +20,9 @@ var pos : Vector2i
 var tilemapManager = null
 
 func getNeededItem() -> String:
-	var items = requierements.keys()
-	var item = items[0]
-	return item
+	var neededItems = requierements.keys()
+	var neededItem = neededItems[0]
+	return neededItem
 	
 func updateRequierements():
 	requierements.Wood += 1

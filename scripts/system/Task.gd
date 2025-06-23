@@ -4,7 +4,7 @@ class_name Task
 
 enum TaskType {BaseTask, FindItem, WalkTo, 
 Pickup, Eat, Manipulate, Harvest, Carry, Drop, Store, WalkToRandom, WalkToStorage, Construct,
-Build}
+Build, Supply}
 
 var task_name : String
 var task_type : TaskType = TaskType.BaseTask
@@ -124,7 +124,7 @@ func building_structure(target):
 	
 	if a != b: # while makes crash
 			
-		var item = target.getNeededItem()	
+		var item = target.getNeededItem()
 		sub_task.task_type = TaskType.FindItem
 		sub_task.target_item_type = item
 		sub_tasks.append(sub_task)
@@ -143,9 +143,11 @@ func building_structure(target):
 		sub_tasks.append(sub_task)
 		
 		sub_task = Task.new()
-		sub_task.task_type = TaskType.Store
+		sub_task.task_type = TaskType.Supply
 		sub_tasks.append(sub_task)
+		
 		structure.updateRequierements()
+		
 		a = structure.requierements
 		b = structure.requierementsReady
 

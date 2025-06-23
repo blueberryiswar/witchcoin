@@ -137,7 +137,10 @@ func drop_item():
 	$Hand.remove_child(in_hand)
 	item_manager.add_child(in_hand)
 	in_hand = null
-		
+	
+func destroy_item():
+	$Hand.remove_child(in_hand)
+	in_hand = null
 	
 func find_food():
 	var item = item_manager.find_nearest_item(global_position,"food")
