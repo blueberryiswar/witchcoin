@@ -17,7 +17,7 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	var newConstruction = placingPrototype.duplicate()
 	
 	constructions[tileMapGridPos] = newConstruction
-	newConstruction.position = gridToGlobalPos(tileMapGridPos)
+	newConstruction.global_position = gridToGlobalPos(tileMapGridPos)
 	newConstruction.tilemapManager = self
 	if newConstruction.category == 1:
 		if structure.get_cell_tile_data(tileMapGridPos) == null:
@@ -38,7 +38,7 @@ func placeFinishedStructure(construction, tileMapGridPos):
 	onConstructionComplete(newStructure,structure)
 		
 func onConstructionComplete(construction,layer):
-	var construction_pos = globalToGridPos(construction.position)
+	var construction_pos = globalToGridPos(construction.global_position)
 	var cells : Array[Vector2i]
 	var surroundingCells = layer.get_surrounding_cells(construction_pos)
 	if !surroundingCells.is_empty():

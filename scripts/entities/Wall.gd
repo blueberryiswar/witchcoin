@@ -2,7 +2,7 @@ extends Node
 
 class_name Wall
 
-@export var requierements = {"Wood" : 5}
+@export var requierements = {"Wood" : 1}
 var requierementsReady = {"Wood" : 0}
 
 @export var tileMapIndex : Vector2i
@@ -14,7 +14,7 @@ var requierementsReady = {"Wood" : 0}
 
 var buildProgress : float = 0
 
-var position : Vector2
+var global_position : Vector2
 
 var tilemapManager = null
 
@@ -30,7 +30,7 @@ func tryBuild(amount : float) -> bool:
 	buildProgress += amount * 1/buildDifficulty
 	
 	if buildProgress >=1:
-		tilemapManager.placeFinishedStructure(self,position)
+		tilemapManager.placeFinishedStructure(self,global_position)
 		return true
 	else:
 		return false
