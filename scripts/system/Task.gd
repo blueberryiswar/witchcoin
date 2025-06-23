@@ -122,7 +122,7 @@ func building_structure(target):
 	
 	var sub_task = Task.new()
 	
-	if a != b:
+	if a != b: # while makes crash
 			
 		var item = target.getNeededItem()	
 		sub_task.task_type = TaskType.FindItem

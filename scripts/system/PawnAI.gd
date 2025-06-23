@@ -94,6 +94,8 @@ func start_current_subtask(sub_task : Task):
 			on_finished_subtask()
 		Task.TaskType.Build:
 			sub_task.target_item.tryBuild(1)
+			current_task.on_finish_sub_task()
+			on_finished_subtask()
 			
 func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null
