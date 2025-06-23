@@ -37,7 +37,8 @@ func placeFinishedStructure(construction, tileMapGridPos):
 	newStructure.global_position = gridToGlobalPos(tileMapGridPos)
 	newStructure.tilemapManager = self
 	
-	structure.set_cell(tileMapGridPos,newStructure.tile_id)
+	structure.set_cell(tileMapGridPos,newStructure.tile_id,newStructure.tileMapIndex)
+	build.erase_cell(tileMapGridPos)
 	onConstructionComplete(newStructure,structure)
 		
 func onConstructionComplete(construction,layer):
