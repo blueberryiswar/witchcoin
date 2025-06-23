@@ -9,15 +9,16 @@ extends Node
 
 var buildProgress : float = 0
 
-var position : Vector2
+var global_position : Vector2
+var pos : Vector2i
 
 var tilemapManager = null
 
-func tryBuild(amount : float) -> bool:
-	buildProgress += amount * 1/buildDifficulty
-	
-	if buildProgress >=1:
-		tilemapManager.OnConstructionComplete(self)
-		return true
-	else:
-		return false
+#func tryBuild(amount : float) -> bool:
+	#buildProgress += amount * 1/buildDifficulty
+	#
+	#if buildProgress >=1:
+		#tilemapManager.OnConstructionComplete(self)
+		#return true
+	#else:
+		#return false

@@ -37,3 +37,5 @@ func tryBuild(amount : float) -> bool:
 	else:
 		return false
 		
+func on_rightclick():
+	print("rightclick")
