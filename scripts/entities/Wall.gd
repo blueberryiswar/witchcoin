@@ -3,7 +3,7 @@ extends Node
 class_name Wall
 
 @export var requierements = {"Wood" : 5}
-var requierementsReady = {}
+var requierementsReady = {"Wood" : 0}
 
 @export var tileMapIndex : Vector2i
 @export var placingMode : UI.PlacingMode
@@ -18,11 +18,16 @@ var position : Vector2
 
 var tilemapManager = null
 
+func getNeededItem() -> String:
+	var items = requierements.keys()
+	var item = items[0]
+	return item
+
 func tryBuild(amount : float) -> bool:
 	buildProgress += amount * 1/buildDifficulty
 	
 	if buildProgress >=1:
-		tilemapManager.OnConstructionComplete(self)
+		tilemapManager.placeFinishedStructure(self,position)
 		return true
 	else:
 		return false

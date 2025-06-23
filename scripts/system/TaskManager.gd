@@ -18,7 +18,7 @@ func request_task():
 	if(len(task_queue) > 0):
 		return task_queue.pop_front()
 
-func add_task(task_type : Task.TaskType, target : Item = null):
+func add_task(task_type : Task.TaskType, target : Node = null):
 	if(!pawn.controllable): return
 	
 	var task = Task.new()
@@ -28,6 +28,9 @@ func add_task(task_type : Task.TaskType, target : Item = null):
 		task.init_harvest_plant(target)
 	if(task_type == Task.TaskType.Store):
 		task.init_haul_item(target)
+	if(task_type == Task.TaskType.Construct):
+		task.building_structure(target)
+	
 		
 	task_queue.append(task)
 		

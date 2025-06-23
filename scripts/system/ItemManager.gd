@@ -10,7 +10,7 @@ var item_prototypes = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tile_map_layers = [%Ground, %Shadow, %build, %construction, %data]
+	tile_map_layers = [%Ground, %Shadow, %structure, %build, %construction, %data]
 	load_food()
 	load_resources()
 	load_plants()

@@ -90,6 +90,8 @@ func start_current_subtask(sub_task : Task):
 				pawn.drop_item()
 		Task.TaskType.Store:
 			pawn.drop_item()
+		Task.TaskType.Build:
+			print("construction in progress")
 			
 func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null

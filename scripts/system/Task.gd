@@ -2,7 +2,9 @@ extends Node
 
 class_name Task
 
-enum TaskType {BaseTask, FindItem, WalkTo, Pickup, Eat, Manipulate, Harvest, Carry, Drop, Store, WalkToRandom, WalkToStorage}
+enum TaskType {BaseTask, FindItem, WalkTo, 
+Pickup, Eat, Manipulate, Harvest, Carry, Drop, Store, WalkToRandom, WalkToStorage, Construct,
+Build}
 
 var task_name : String
 var task_type : TaskType = TaskType.BaseTask
@@ -11,6 +13,7 @@ var sub_tasks = []
 var current_sub_task : int = 0
 
 var target_item : Item
+var target_structure : Node
 var has_item : bool = false
 var used_item : bool = false
 var target_item_type : String
@@ -110,5 +113,47 @@ func going_for_a_walk():
 	sub_task.task_type = TaskType.WalkToRandom
 	sub_tasks.append(sub_task)
 	
-func building_structure():
-	task_name = "Building Structure"
+func getting_requierements(target):
+	task_name = "Getting Requierements Ready"
+	var sub_task = Task.new()
+	sub_task.task_type = TaskType.FindItem
+	sub_task.target_item_type = target
+	sub_tasks.append(sub_task)
+		
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.WalkTo
+	sub_tasks.append(sub_task)
+		
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.Pickup
+	sub_tasks.append(sub_task)
+		
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.WalkTo
+	sub_tasks.append(sub_task)
+		
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.Store
+	sub_tasks.append(sub_task)
+		
+func building_structure(target):
+	task_name = "Building Structure"	
+	
+	var readyToBuild : bool = false
+	
+	while !readyToBuild:
+		var a = target.requierements
+		var b = target.requierementsReady
+		
+		while a != b:
+			var item = target.getNeededItem()
+			getting_requierements(item)
+		readyToBuild = true
+	
+	var sub_task = Task.new()
+	sub_task.task_type = TaskType.WalkTo
+	sub_tasks.append(sub_task)
+	
+	sub_task = Task.new()
+	sub_task.task_type = TaskType.Build
+	sub_tasks.append(sub_task)

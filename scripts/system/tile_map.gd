@@ -24,13 +24,24 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	else:
 		if build.get_cell_tile_data(tileMapGridPos) == null:
 			build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
-			onConstructionComplete(newConstruction,build)
+			var task_managers = get_tree().get_nodes_in_group("task_manager")
+			for task_manager in task_managers:
+				if task_manager.pawn.active:
+					task_manager.add_task(Task.TaskType.Construct, newConstruction)
+					return
+			
+func placeFinishedStructure(construction, tileMapGridPos):
+	var newStructure = construction.duplicate()
+	
+	structure.set_cell(tileMapGridPos,newStructure)
+	onConstructionComplete(newStructure,structure)
 		
 func onConstructionComplete(construction,layer):
 	var construction_pos = globalToGridPos(construction.position)
 	var cells : Array[Vector2i]
 	var surroundingCells = layer.get_surrounding_cells(construction_pos)
 	if !surroundingCells.is_empty():
+		cells.append(construction_pos)
 		for cell in surroundingCells:
 			var tileID = layer.get_cell_source_id(cell)
 			if tileID != null:
