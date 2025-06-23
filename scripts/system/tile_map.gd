@@ -26,6 +26,7 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 	else:
 		if build.get_cell_tile_data(tileMapGridPos) == null:
 			build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
+			onConstructionComplete(newConstruction,build)
 			var pawnAIs = get_tree().get_nodes_in_group("pawn_AI")
 			for pawnAI in pawnAIs:
 				if pawnAI.current_action == pawnAI.PawnAction.Idle:

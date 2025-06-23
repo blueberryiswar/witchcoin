@@ -100,7 +100,7 @@ func draw_prototype_in_line():
 		for i in range:
 			placing_positions.append(Vector2i(start_placing_pos.x, i))
 	
-	tilemap.construction.set_cells_terrain_connect(placing_positions,0,0)
+	tilemap.construction.set_cells_terrain_connect(placing_positions,current_terrain,0)
 
 func place_construction_orders():
 	for pos in tilemap.construction.get_used_cells():
