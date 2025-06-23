@@ -33,8 +33,11 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 			
 func placeFinishedStructure(construction, tileMapGridPos):
 	var newStructure = construction.duplicate()
+	constructions[tileMapGridPos] = newStructure
+	newStructure.global_position = gridToGlobalPos(tileMapGridPos)
+	newStructure.tilemapManager = self
 	
-	structure.set_cell(tileMapGridPos,newStructure)
+	structure.set_cell(tileMapGridPos,newStructure.tile_id)
 	onConstructionComplete(newStructure,structure)
 		
 func onConstructionComplete(construction,layer):

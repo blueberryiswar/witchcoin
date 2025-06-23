@@ -15,6 +15,7 @@ var requierementsReady = {"Wood" : 0}
 var buildProgress : float = 0
 
 var global_position : Vector2
+var pos : Vector2i
 
 var tilemapManager = null
 
@@ -28,9 +29,10 @@ func updateRequierements():
 
 func tryBuild(amount : float) -> bool:
 	buildProgress += amount * 1/buildDifficulty
-	
+	pos = tilemapManager.globalToGridPos(global_position)
 	if buildProgress >=1:
-		tilemapManager.placeFinishedStructure(self,global_position)
+		tilemapManager.placeFinishedStructure(self, pos)
+		tilemapManager.path_finder.astar_grid.set_point_solid(pos,true)
 		return true
 	else:
 		return false

@@ -90,8 +90,10 @@ func start_current_subtask(sub_task : Task):
 				pawn.drop_item()
 		Task.TaskType.Store:
 			pawn.drop_item()
+			current_task.on_finish_sub_task()
+			on_finished_subtask()
 		Task.TaskType.Build:
-			sub_task.target.tryBuild(1)
+			sub_task.target_item.tryBuild(1)
 			
 func on_finished_subtask():
 	if(current_task.is_finished()): current_task = null
