@@ -134,9 +134,9 @@ func eat():
 		drop_item()
 		
 func drop_item():
-	item_manager.free_item(in_hand,in_hand.item_name)
 	$Hand.remove_child(in_hand)
 	item_manager.add_child(in_hand)
+	item_manager.free_item(in_hand,in_hand.item_name)
 	in_hand = null
 	
 func destroy_item():
