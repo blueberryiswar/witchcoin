@@ -22,6 +22,9 @@ func getNeededItem() -> String:
 	var items = requierements.keys()
 	var item = items[0]
 	return item
+	
+func updateRequierements():
+	requierements.Wood += 1
 
 func tryBuild(amount : float) -> bool:
 	buildProgress += amount * 1/buildDifficulty

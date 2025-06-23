@@ -12,8 +12,7 @@ var task_type : TaskType = TaskType.BaseTask
 var sub_tasks = []
 var current_sub_task : int = 0
 
-var target_item : Item
-var target_structure : Node
+var target_item : Node
 var has_item : bool = false
 var used_item : bool = false
 var target_item_type : String
@@ -146,6 +145,10 @@ func building_structure(target):
 			sub_task = Task.new()
 			sub_task.task_type = TaskType.Store
 			sub_tasks.append(sub_task)
+			
+			target.updateRequierements()
+			a = target.requierements
+			b = target.requierementsReady
 			
 		readyToBuild = true
 	
