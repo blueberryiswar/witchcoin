@@ -54,11 +54,12 @@ func init_find_and_eat_food():
 	sub_tasks.append(sub_task)
 	
 	if sub_task.target_item == null: # even if food was found, target_item is always null
+		
 		sub_task = Task.new()
 		sub_task.task_type = TaskType.FindItem
 		sub_task.target_item_type = "BerryBush"
 		sub_tasks.append(sub_task)
-			
+		
 		sub_task = Task.new()
 		sub_task.task_type = TaskType.WalkTo
 		sub_task.has_item = true

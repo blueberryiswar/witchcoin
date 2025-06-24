@@ -52,8 +52,8 @@ func start_current_subtask(sub_task : Task):
 			var target_item = pawn.find_nearest_item(sub_task.target_item_type)
 			if target_item == null:
 				print("no item found of type: ", sub_task.target_item_type)
-				current_task.finish()
-				#current_task.on_found_item(target_item)
+				#current_task.finish()
+				current_task.on_found_item(target_item)
 			else:
 				current_task.on_found_item(target_item)
 			on_finished_subtask()
