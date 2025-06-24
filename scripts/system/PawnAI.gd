@@ -53,6 +53,7 @@ func start_current_subtask(sub_task : Task):
 			if target_item == null:
 				print("no item found of type: ", sub_task.target_item_type)
 				current_task.finish()
+				#current_task.on_found_item(target_item)
 			else:
 				current_task.on_found_item(target_item)
 			on_finished_subtask()
@@ -72,8 +73,9 @@ func start_current_subtask(sub_task : Task):
 			current_task.on_finish_sub_task()
 			on_finished_subtask()
 		Task.TaskType.Harvest:
-			pawn.interact(sub_task.target_item)
-			interaction_target = sub_task.target_item
+			if !pawn.interact(sub_task.target_item):
+				pawn.interact(sub_task.target_item)
+				interaction_target = sub_task.target_item
 		Task.TaskType.WalkToRandom:
 			var random_pos = pawn.random_target_position() * 16
 			pawn.move_to(random_pos)
@@ -93,11 +95,22 @@ func start_current_subtask(sub_task : Task):
 			current_task.on_finish_sub_task()
 			on_finished_subtask()
 		Task.TaskType.Build:
-			sub_task.target_item.tryBuild(1)
-			current_task.on_finish_sub_task()
-			on_finished_subtask()
+			print(sub_task.target_item.pos) #tilemapManager
+			if sub_task.target_item.tilemapManager.isCellEmpty(sub_task.target_item.pos,sub_task.target_item.tilemapManager.structure):
+				sub_task.target_item.tryBuild(1)
+				current_task.on_finish_sub_task()
+				on_finished_subtask()
+			else:
+				print("Cell is not Free!!!")
+				pawn.abort_task.emit()
+				task_manager.request_task()
+			#current_task.on_finish_sub_task()
+			#on_finished_subtask()
 		Task.TaskType.Supply:
-			pawn.destroy_item()
+			if sub_task.target_item.tilemapManager.isCellEmpty(sub_task.target_item.pos,sub_task.target_item.tilemapManager.structure):
+				pawn.destroy_item()
+			else:
+				pawn.drop_item()
 			current_task.on_finish_sub_task()
 			on_finished_subtask()
 			
@@ -109,5 +122,6 @@ func share_grid(pawn_pos, target_pos) -> bool:
 	return floor(pawn_pos/16) == floor(target_pos/16)
 
 func _on_pawn_abort_task():
+	pawn.drop_item()
 	current_task = null
 	current_action = PawnAction.Idle

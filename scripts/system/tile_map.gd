@@ -86,3 +86,9 @@ func gridToGlobalPos(gridPos : Vector2i) -> Vector2:
 	var x = gridPos.x * tile_set.tile_size.x
 	var y = gridPos.y * tile_set.tile_size.y
 	return Vector2(x,y)
+	
+func isCellEmpty(pos : Vector2i,layer) -> bool:
+	if layer.get_cell_tile_data(pos) == null:
+		return true
+	else:
+		return false

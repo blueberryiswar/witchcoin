@@ -18,7 +18,7 @@ var end_target_position : Vector2i
 var current_anim = "idle"
 var is_moving = false
 var in_hand : Item = null
-var hunger : float = 0.0
+var hunger : float = 0.9
 var recreation_need = 0.0
 var recreation = false
 var interaction_target : Item = null
@@ -110,12 +110,14 @@ func update_current_pos():
 		move_to(end_target_position)
 	path_finder.astar_grid.set_point_solid(current_pos,true)
 	path_finder.astar_grid.update()
-	print("solid gesetzt: " + str(current_pos))	
+	#print("solid gesetzt: " + str(current_pos))	
 
 func pick_up(target_item : Item):
-	item_manager.remove_item(target_item)
-	$Hand.add_child(target_item)
-	in_hand = target_item
+	if in_hand == null:
+		item_manager.remove_item(target_item)
+		$Hand.add_child(target_item)
+		in_hand = target_item
+		print(in_hand)
 	
 func interact(target_item):
 	interaction_target = target_item
@@ -134,16 +136,18 @@ func eat():
 		drop_item()
 		
 func drop_item():
-	$Hand.remove_child(in_hand)
-	item_manager.add_child(in_hand)
-	item_manager.free_item(in_hand,in_hand.item_name)
-	in_hand = null
+	if in_hand != null:
+		$Hand.remove_child(in_hand)
+		item_manager.add_child(in_hand)
+		item_manager.free_item(in_hand,str(in_hand.item_type))
+		in_hand = null
 	
 func destroy_item():
-	$Hand.remove_child(in_hand)
-	item_manager.add_child(in_hand)
-	item_manager.remove_child(in_hand)
-	in_hand = null
+	if in_hand != null:
+		$Hand.remove_child(in_hand)
+		item_manager.add_child(in_hand)
+		item_manager.remove_child(in_hand)
+		in_hand = null
 	
 func find_food():
 	var item = item_manager.find_nearest_item(global_position,"food")

@@ -58,15 +58,14 @@ func free_item(item, item_type : String):
 func find_nearest_item(my_position: Vector2, item_type : String):
 	var closestItem : Item = null
 	var distance = 9999999
-	
 	var items_in_world = get_tree().get_nodes_in_group(item_type)
 	for item in items_in_world:
 		var distance_new = path_finder.get_my_path(my_position, item.global_position).size()
 		if(distance_new < distance):
 			distance = distance_new
 			closestItem = item
-			print(distance, closestItem)
-	reserve_item(closestItem, item_type)
+	if closestItem != null:
+		reserve_item(closestItem, item_type)
 	return closestItem
 		
 func _dir_contents(path : String, file_extension: String):

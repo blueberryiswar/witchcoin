@@ -19,7 +19,13 @@ func request_task():
 		return task_queue.pop_front()
 
 func add_task(task_type : Task.TaskType, target : Node = null):
-	if(!pawn.controllable): return
+	if !pawn.controllable: 
+		if task_type == Task.TaskType.Construct:
+			var task = Task.new()
+			pawn.recreation = false
+			task.building_structure(target)
+		else:
+			return
 	
 	var task = Task.new()
 	pawn.recreation = false

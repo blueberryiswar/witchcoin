@@ -12,7 +12,7 @@ enum ItemType {ITEM = 0, FOOD = 1, RESSOURCE = 2, WEAPON = 3, CLOTHES = 4}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group(item_name)
+	add_to_group(str(item_type))
 
 func on_rightclick():
 	var task_managers = get_tree().get_nodes_in_group("task_manager")

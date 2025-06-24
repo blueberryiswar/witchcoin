@@ -31,8 +31,9 @@ func on_finish_sub_task():
 	
 func on_found_item(item):
 	on_finish_sub_task()
-	get_current_sub_task().target_item = item
-	get_current_sub_task().has_item = true
+	if item != null:
+		get_current_sub_task().target_item = item
+		get_current_sub_task().has_item = true
 	
 func on_reached_destination():
 	var item = get_current_sub_task().target_item
@@ -46,20 +47,39 @@ func on_used_item():
 
 func init_find_and_eat_food():
 	task_name = "Find and Eat Food"
-		
+	
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.FindItem
 	sub_task.target_item_type = "food"
 	sub_tasks.append(sub_task)
 	
+	if sub_task.target_item == null: # even if food was found, target_item is always null
+		sub_task = Task.new()
+		sub_task.task_type = TaskType.FindItem
+		sub_task.target_item_type = "BerryBush"
+		sub_tasks.append(sub_task)
+			
+		sub_task = Task.new()
+		sub_task.task_type = TaskType.WalkTo
+		sub_task.has_item = true
+		sub_tasks.append(sub_task)
+				
+		sub_task = Task.new()
+		sub_task.task_type = TaskType.Harvest
+		sub_tasks.append(sub_task)
+			
+		#sub_task.task_type = TaskType.FindItem
+		#sub_task.target_item_type = "food"
+		#sub_tasks.append(sub_task)
+	
 	sub_task = Task.new()
 	sub_task.task_type = TaskType.WalkTo
 	sub_tasks.append(sub_task)
-	
+		
 	sub_task = Task.new()
 	sub_task.task_type = TaskType.Pickup
 	sub_tasks.append(sub_task)
-	
+		
 	sub_task = Task.new()
 	sub_task.task_type = TaskType.Eat
 	sub_tasks.append(sub_task)
@@ -128,7 +148,7 @@ func building_structure(target):
 		sub_task.task_type = TaskType.FindItem
 		sub_task.target_item_type = item
 		sub_tasks.append(sub_task)
-		
+			
 		sub_task = Task.new()
 		sub_task.task_type = TaskType.WalkTo
 		sub_tasks.append(sub_task)
