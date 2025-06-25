@@ -1,18 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt4tlvxdmp1g2"]
 
 [ext_resource type="Texture2D" uid="uid://dgv8vurfrihgj" path="res://assets/spritesheet/Resources.png" id="1_ekk5d"]
-[ext_resource type="Script" uid="uid://bd4sy0nnigf6w" path="res://scripts/entities/Item.gd" id="2_dd0py"]
+[ext_resource type="Script" uid="uid://n5aonmemf1a3" path="res://scripts/entities/ressource.gd" id="2_30ur0"]
 [ext_resource type="PackedScene" uid="uid://dpl3m4517uyn8" path="res://scenes/system/click_target.tscn" id="3_30ur0"]
 
 [node name="Wood" type="Sprite2D" groups=["Wood"]]
 texture_filter = 1
 texture = ExtResource("1_ekk5d")
 hframes = 3
-script = ExtResource("2_dd0py")
+script = ExtResource("2_30ur0")
 item_name = "Wood"
-item_description = "Wood chopped from a Tree"
+item_description = "A log of wood"
 count = 1
-weight = 1.0
 item_type = 5
 
 [node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_30ur0")]

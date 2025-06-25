@@ -1,7 +1,7 @@
 extends Sprite2D
 
 class_name Item
-enum ItemType {ITEM = 0, FOOD = 1, RESSOURCE = 2, WEAPON = 3, CLOTHES = 4}
+enum ItemType {ITEM = 0, FOOD = 1, RESSOURCE = 2, WEAPON = 3, CLOTHES = 4, WOOD = 5}
 
 @export var item_name : String
 @export var item_description : String

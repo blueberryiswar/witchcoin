@@ -18,7 +18,7 @@ var end_target_position : Vector2i
 var current_anim = "idle"
 var is_moving = false
 var in_hand : Item = null
-var hunger : float = 0.9
+var hunger : float = 0.6
 var recreation_need = 0.0
 var recreation = false
 var interaction_target : Item = null
@@ -139,7 +139,10 @@ func drop_item():
 	if in_hand != null:
 		$Hand.remove_child(in_hand)
 		item_manager.add_child(in_hand)
-		item_manager.free_item(in_hand,str(in_hand.item_type))
+		var group = in_hand.ItemType.keys()[in_hand.item_type]
+		group = group.to_lower()
+		group[0] = group[0].to_upper()
+		item_manager.free_item(in_hand,group)
 		in_hand = null
 	
 func destroy_item():

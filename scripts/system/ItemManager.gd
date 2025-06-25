@@ -53,7 +53,7 @@ func reserve_item(item, item_type : String):
 func free_item(item, item_type : String):
 	if item != null:
 		item.remove_from_group("reserved")
-		item.add_to_group(item_type)
+		item.add_to_group(str(item_type))
 	
 func find_nearest_item(my_position: Vector2, item_type : String):
 	var closestItem : Item = null
