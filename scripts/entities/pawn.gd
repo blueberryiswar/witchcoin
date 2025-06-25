@@ -24,6 +24,7 @@ var recreation = false
 var interaction_target : Item = null
 @export var active : bool = false
 @export var controllable : bool = false
+@onready var click_target: Node = $ClickTarget
 
 var current_pos : Vector2i
 
@@ -47,7 +48,17 @@ func _input(event):
 		abort_task.emit()
 		move_to(get_global_mouse_position())
 	if event.is_action_pressed("move"):
-		pass
+		if !Input.is_action_pressed("mult_select"):
+			var pawns = get_tree().get_nodes_in_group("Pawn")
+			var clicked : bool = false
+			for pawn in pawns:
+				if click_target.sprite.is_pixel_opaque(click_target.sprite.get_local_mouse_position()):
+					clicked = true
+			if !clicked:
+				for pawn in pawns:
+					pawn.active = false
+					pawn.controllable = false
+				active_pawn_changed.emit()
 
 func _process(delta):
 	update_current_pos()
@@ -178,13 +189,12 @@ func update_position():
 	
 func on_leftclick():
 	if !Input.is_action_pressed("mult_select"):
-		if not active and not controllable:
-			var pawns = get_tree().get_nodes_in_group("Pawn")
-			for pawn in pawns:
-				pawn.active = false
-				pawn.controllable = false
-		active = not active
-		controllable = not controllable
+		var pawns = get_tree().get_nodes_in_group("Pawn")
+		for pawn in pawns:
+			pawn.active = false
+			pawn.controllable = false
+		active = true
+		controllable = true
 	else:
 		active = not active
 		controllable = not controllable

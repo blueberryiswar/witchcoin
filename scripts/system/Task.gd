@@ -63,7 +63,7 @@ func init_find_and_harvest_berrybush():
 	sub_tasks.append(sub_task)
 
 func init_find_and_eat_food():
-	task_name = "Find and Eat Food"
+	task_name = "Find and Eat Food"	
 	
 	var sub_task = Task.new()
 	sub_task.task_type = TaskType.FindItem
