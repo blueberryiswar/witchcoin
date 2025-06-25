@@ -52,7 +52,7 @@ func _input(event):
 			var pawns = get_tree().get_nodes_in_group("Pawn")
 			var clicked : bool = false
 			for pawn in pawns:
-				if click_target.sprite.is_pixel_opaque(click_target.sprite.get_local_mouse_position()):
+				if pawn.click_target.sprite.is_pixel_opaque(click_target.sprite.get_local_mouse_position()):
 					clicked = true
 			if !clicked:
 				for pawn in pawns:
