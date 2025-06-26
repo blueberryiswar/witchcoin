@@ -206,7 +206,7 @@ graph_offset = Vector2(-86, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_5ebhw"]
 resource_local_to_scene = true
 font_size = 10
-outline_size = 2
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Pawn" type="Node2D"]
