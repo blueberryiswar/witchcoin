@@ -102,7 +102,6 @@ func start_current_subtask(sub_task : Task):
 				current_task.on_finish_sub_task()
 				on_finished_subtask()
 			else:
-				print("Cell is not Free!!!")
 				pawn.abort_task.emit()
 				task_manager.request_task()
 			#current_task.on_finish_sub_task()
