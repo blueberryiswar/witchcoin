@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bau0w6f25kfso"]
+[gd_scene load_steps=25 format=3 uid="uid://bau0w6f25kfso"]
 
 [ext_resource type="Script" uid="uid://ud2qfw861c6d" path="res://scripts/entities/pawn.gd" id="1_symn1"]
 [ext_resource type="Texture2D" uid="uid://d1dy0eujgt0c5" path="res://assets/characters/Kleidung1.png" id="2_bmei4"]
@@ -12,7 +12,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:position:x")
+tracks/0/path = NodePath("Sprites/Body:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:position:y")
+tracks/1/path = NodePath("Sprites/Body:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +34,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Body:rotation")
+tracks/2/path = NodePath("Sprites/Body:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -61,7 +61,7 @@ loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:rotation")
+tracks/0/path = NodePath("Sprites/Body:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +72,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:position:x")
+tracks/1/path = NodePath("Sprites/Body:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -83,7 +83,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Body:position:y")
+tracks/2/path = NodePath("Sprites/Body:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -117,7 +117,7 @@ loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:position:x")
+tracks/0/path = NodePath("Sprites/Body:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -128,7 +128,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:position:y")
+tracks/1/path = NodePath("Sprites/Body:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -139,7 +139,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Body:rotation")
+tracks/2/path = NodePath("Sprites/Body:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -203,11 +203,19 @@ states/swing/position = Vector2(524.667, 60.6667)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2g38j"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_3bsm0"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_3hgkt")]
 graph_offset = Vector2(-86, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5ebhw"]
+resource_local_to_scene = true
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Pawn" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_symn1")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Sprites"]
 light_mask = 2
 y_sort_enabled = true
 texture = ExtResource("2_bmei4")
@@ -215,7 +223,7 @@ offset = Vector2(0, -8)
 hframes = 8
 vframes = 6
 
-[node name="Hair" type="Sprite2D" parent="Body"]
+[node name="Hair" type="Sprite2D" parent="Sprites/Body"]
 light_mask = 2
 texture_filter = 1
 texture = ExtResource("2_bmei4")
@@ -224,7 +232,7 @@ hframes = 8
 vframes = 6
 frame = 24
 
-[node name="Clothes" type="Sprite2D" parent="Body"]
+[node name="Clothes" type="Sprite2D" parent="Sprites/Body"]
 light_mask = 2
 texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
@@ -232,7 +240,7 @@ hframes = 8
 vframes = 6
 frame = 16
 
-[node name="Pants" type="Sprite2D" parent="Body"]
+[node name="Pants" type="Sprite2D" parent="Sprites/Body"]
 light_mask = 2
 texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
@@ -240,7 +248,7 @@ hframes = 8
 vframes = 6
 frame = 8
 
-[node name="Hats" type="Sprite2D" parent="Body"]
+[node name="Hats" type="Sprite2D" parent="Sprites/Body"]
 y_sort_enabled = true
 texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
@@ -248,7 +256,7 @@ hframes = 8
 vframes = 6
 frame = 42
 
-[node name="Beard" type="Sprite2D" parent="Body"]
+[node name="Beard" type="Sprite2D" parent="Sprites/Body"]
 y_sort_enabled = true
 texture = ExtResource("2_bmei4")
 offset = Vector2(0, -8)
@@ -284,6 +292,33 @@ script = ExtResource("4_4rwv0")
 script = ExtResource("5_i63vw")
 
 [node name="ClickTarget" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_5ebhw")]
-sprite = NodePath("../Body")
+sprite = NodePath("../Sprites/Body")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="NameLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Name"
+label_settings = SubResource("LabelSettings_5ebhw")
+horizontal_alignment = 1
 
 [connection signal="abort_task" from="." to="PawnAI" method="_on_pawn_abort_task"]

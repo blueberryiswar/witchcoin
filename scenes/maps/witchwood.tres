@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://gwf6d7x7tiyi"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://gwf6d7x7tiyi"]
 
 [ext_resource type="Texture2D" uid="uid://4o5xtinspjyu" path="res://assets/spritesheet/data.png" id="1_op1na"]
 [ext_resource type="Texture2D" uid="uid://dno5jcx6fhhp" path="res://assets/spritesheet/walls_auto.png" id="2_phwrr"]
@@ -716,8 +716,6 @@ separation = Vector2i(2, 2)
 2:5/0/terrain_set = 0
 2:5/0/custom_data_1 = true
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_op1na"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60qwg"]
 texture = ExtResource("5_6rr66")
 0:0/0 = 0
@@ -748,4 +746,3 @@ sources/3 = SubResource("TileSetAtlasSource_tucn5")
 sources/0 = SubResource("TileSetAtlasSource_ed0bp")
 sources/1 = SubResource("TileSetAtlasSource_84eb0")
 sources/6 = SubResource("TileSetAtlasSource_60qwg")
-sources/4 = SubResource("TileSetScenesCollectionSource_op1na")

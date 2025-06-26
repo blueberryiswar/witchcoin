@@ -25,6 +25,8 @@ var interaction_target : Item = null
 @export var active : bool = false
 @export var controllable : bool = false
 @onready var click_target: Node = $ClickTarget
+@onready var name_label: Label = $Control/NameLabel
+@onready var sprites: Node2D = $Sprites
 
 var current_pos : Vector2i
 
@@ -35,11 +37,13 @@ signal abort_task()
 func _ready():
 	add_to_group("Pawn")
 	animation_player.play("idle")
-	$Body/Hair.frame = hair
-	$Body/Clothes.frame = clothes
-	$Body/Beard.frame = beard
-	$Body/Pants.frame = pants
-	$Body/Hats.frame = hats
+	name_label.text = pawn_name
+	set_label_visibility()
+	$Sprites/Body/Hair.frame = hair
+	$Sprites/Body/Clothes.frame = clothes
+	$Sprites/Body/Beard.frame = beard
+	$Sprites/Body/Pants.frame = pants
+	$Sprites/Body/Hats.frame = hats
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
@@ -58,9 +62,10 @@ func _input(event):
 				for pawn in pawns:
 					pawn.active = false
 					pawn.controllable = false
-				active_pawn_changed.emit()
+		active_pawn_changed.emit()
 
 func _process(delta):
+	set_label_visibility()
 	update_current_pos()
 	if(is_moving):
 		hunger += delta * 0.01 # moving makes hungry :D
@@ -87,15 +92,21 @@ func _physics_process(delta):
 
 	var target_position = ground_grid.map_to_local(current_id_path.front())
 	if(target_position.x < global_position.x):
-		scale = Vector2(-1.0,1.0)
+		sprites.scale = Vector2(-1.0,1.0)
 	else:
-		scale = Vector2(1.0,1.0)
+		sprites.scale = Vector2(1.0,1.0)
 
 	global_position = global_position.move_toward(target_position, 1)
 	is_moving = true
 	if global_position == target_position:
 		current_id_path.pop_front()
 		update_position()
+		
+func set_label_visibility():	
+	if active:
+		name_label.visible = true
+	else:
+		name_label.visible = false
 
 func move_to(pos : Vector2):
 	end_target_position = pos
