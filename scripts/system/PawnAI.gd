@@ -65,7 +65,8 @@ func start_current_subtask(sub_task : Task):
 				current_task = null
 				current_action = PawnAction.Idle
 		Task.TaskType.Pickup:
-			pawn.pick_up(sub_task.target_item)
+			if pawn.in_hand == null:
+				pawn.pick_up(sub_task.target_item)
 			current_task.on_finish_sub_task()
 			on_finished_subtask()
 		Task.TaskType.Eat:
@@ -107,10 +108,11 @@ func start_current_subtask(sub_task : Task):
 			#current_task.on_finish_sub_task()
 			#on_finished_subtask()
 		Task.TaskType.Supply:
-			if sub_task.target_item.tilemapManager.isCellEmpty(sub_task.target_item.pos,sub_task.target_item.tilemapManager.structure):
-				pawn.destroy_item()
-			else:
-				pawn.drop_item()
+			if pawn.in_hand != null:
+				if sub_task.target_item.tilemapManager.isCellEmpty(sub_task.target_item.pos,sub_task.target_item.tilemapManager.structure):
+					pawn.destroy_item()
+				else:
+					pawn.drop_item()
 			current_task.on_finish_sub_task()
 			on_finished_subtask()
 			

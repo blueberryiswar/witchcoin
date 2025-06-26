@@ -139,7 +139,6 @@ func pick_up(target_item : Item):
 		item_manager.remove_item(target_item)
 		$Hand.add_child(target_item)
 		in_hand = target_item
-		print(in_hand)
 	
 func interact(target_item):
 	interaction_target = target_item
