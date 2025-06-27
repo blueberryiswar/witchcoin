@@ -147,14 +147,15 @@ func interact(target_item):
 	interaction_target = target_item
 
 func eat():
-	if(in_hand.item_type == Item.ItemType.FOOD):
-		hunger -= in_hand.nutrition
-		in_hand.count -= 1
-		if(in_hand.count > 0):
-			drop_item()
-		else:
-			in_hand.queue_free()
-			in_hand = null
+	if in_hand != null:
+		if(in_hand.item_type == Item.ItemType.FOOD):
+			hunger -= in_hand.nutrition
+			in_hand.count -= 1
+			if(in_hand.count > 0):
+				drop_item()
+			else:
+				in_hand.queue_free()
+				in_hand = null
 			
 	else:
 		drop_item()
