@@ -28,10 +28,14 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 			build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
 			onConstructionComplete(newConstruction,build)
 			clickables.set_cell(tileMapGridPos,4,Vector2i(0,0),1)
-			var pawnAIs = get_tree().get_nodes_in_group("pawn_AI")
-			for pawnAI in pawnAIs:
-				if pawnAI.current_action == pawnAI.PawnAction.Idle:
-					pawnAI.task_manager.add_task(Task.TaskType.Construct, newConstruction)
+			sendConstructionTask(newConstruction)
+					
+func sendConstructionTask(construction):
+	var pawnAIs = get_tree().get_nodes_in_group("pawn_AI")
+	for pawnAI in pawnAIs:
+		if pawnAI.current_action == pawnAI.PawnAction.Idle:
+			pawnAI.task_manager.add_task(Task.TaskType.Construct, construction)
+			return
 			
 func placeFinishedStructure(construction, tileMapGridPos):
 	var newStructure = construction.duplicate()

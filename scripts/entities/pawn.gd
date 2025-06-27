@@ -18,7 +18,7 @@ var end_target_position : Vector2i
 var current_anim = "idle"
 var is_moving = false
 var in_hand : Item = null
-var hunger : float = 0.6
+var hunger : float = 0.0
 var recreation_need = 0.0
 var recreation = false
 var interaction_target : Item = null
