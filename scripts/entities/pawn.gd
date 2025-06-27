@@ -125,8 +125,11 @@ func update_current_pos():
 			#print("solid gesetzt: " + str(current_pos))	
 		return
 	if current_pos != null:
-		#print("solid entfernt: " + str(current_pos))
-		path_finder.astar_grid.set_point_solid(current_pos,false)
+		if path_finder.tile_map.structure.get_cell_tile_data(current_pos) == null:
+			#print("solid entfernt: " + str(current_pos))
+			path_finder.astar_grid.set_point_solid(current_pos,false)
+		else:
+			path_finder.astar_grid.set_point_solid(current_pos,true)
 	current_pos = pos_temp
 	if end_target_position != Vector2i.ZERO:
 		move_to(end_target_position)
