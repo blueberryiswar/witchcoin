@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1xtpjnx0uqi8"]
+
+[ext_resource type="Script" uid="uid://cs0s1ndaqrfw4" path="res://scripts/system/clickable_area.gd" id="1_ntcil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nghp5"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[node name="ClickableArea" type="Node2D"]
+z_index = 9
+script = ExtResource("1_ntcil")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nghp5")
+debug_color = Color(0.65098, 0.517647, 0, 0.603922)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -4,11 +4,11 @@ extends TileMapLayer
 @onready var ground: TileMapLayer = %Ground
 @onready var shadow: TileMapLayer = %Shadow
 @onready var structure: TileMapLayer = %structure
+@onready var clickables: TileMapLayer = %clickables
 @onready var build: TileMapLayer = %build
 @onready var construction: TileMapLayer = %construction
 @onready var data: TileMapLayer = %data
 @onready var path_finder: Pathfinder = $"../PathFinding"
-
 var constructions = {} # {Vector2i:Construction}
 
 signal readyToBuild(construction)
@@ -27,6 +27,7 @@ func placeConstructionOrder(placingPrototype, tileMapGridPos):
 		if build.get_cell_tile_data(tileMapGridPos) == null:
 			build.set_cell(tileMapGridPos,newConstruction.tile_id,newConstruction.tileMapIndex)
 			onConstructionComplete(newConstruction,build)
+			clickables.set_cell(tileMapGridPos,4,Vector2i(0,0),1)
 			var pawnAIs = get_tree().get_nodes_in_group("pawn_AI")
 			for pawnAI in pawnAIs:
 				if pawnAI.current_action == pawnAI.PawnAction.Idle:
